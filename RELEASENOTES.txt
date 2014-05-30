@@ -1,0 +1,64 @@
+
+Welcome to FreeRider beta0.1.1 - Mar.18, 2014
+
+
+
+Please Note: This is a PowerTool under active development.
+
+The focus is twofold:
+
+1: provide a pythonic, fully open sourced NXT api implementation
+2: provide a trade station for the NXT Asset Exchange
+
+Features:
+
+MainWin:
+- sending Money
+- polling account, balances, public key
+
+Asset Exchange:
+
+- issue Asset
+- transfer Asset 
+- place Order (B/A)
+- cancel Order (B/A)
+
+- clickable Assets to quickly acccess pending orders.
+- clickable OrderBook for slated Asset - Automatch clicked Order for fast order placement.
+
+API ACCESS:
+
+- 49 NRS API calls, individually accessible.
+- addition of further API calls can be done in ~30 Minutes.
+
+
+
+
+Issues and Remarks: 
+
+The server queries are delivered with 'POST'. https is not implemented yet - ONLY USE ON LOCALHOST OR TRUSTED SUBNETS - OR TESTNET!
+
+This is an ongoing work. Further documentation will be added.
+
+
+A transaction logfile is created, by default under the name: ___nxt_transaction.log
+
+The connection url has to be entered on the main win as: http://localhost:6876
+
+The line edit on API access is for display only, the connection can not be changed there.
+
+This is written to in 'append' mode.
+
+To SEND MONEY, each line edit (recipient, fee, amount, deadline) must be confirmed with a <return> key.
+
+
+
+
+
+
+
+Donations Welcome! NXT: 1674414626317090683
+
+Comments, Questions: l8orre - bitcointalk.org
+
+

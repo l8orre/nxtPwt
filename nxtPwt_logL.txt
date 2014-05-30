@@ -1,0 +1,63 @@
+
+vvvvvvvvvvvvvvvvvvsender - 16159101027034403504
+fullHash - 6ad785178f26476ae57e1fa2dac363677b5f37acf9dce7a28c183f7b12b834af
+senderPublicKey - f9cecd0a2d38afcb4a799ec7e7c718ce451053bd2a2924c15fbd5922aa915825
+subtype - 0
+blockTimestamp - 15542091
+signatureHash - b3b84e57b77c0a8d5bfaaf21d54aabdd3d00d86d1c6fe6b69cbb8ecb462be8e1
+height - 105809
+deadline - 180
+timestamp - 15542040
+block - 7021906725468463205
+senderRS - NXT-L6PJ-SMZ2-5TDB-GA7J2
+recipient - 14148504165393564086
+recipientRS - NXT-Q2FQ-LGAQ-H3AL-EPEQA
+confirmations - 4
+amountNQT - 1500000000000
+feeNQT - 100000000
+transaction - 7658132087383644010
+signature - 49eb8478e2e34b08bf1e78e9e2a92bcd7ce4c61bda548f1711e21cd0baf3bc0afd48c6fd57191a9462668adedb35925ee7d7181c833fb4f4cc29d647aae69818
+type - 0
+^^^^^^^^^^^^^^^^^
+
+vvvvvvvvvvvvvvvvvvsender - 16159101027034403504
+fullHash - 6ad785178f26476ae57e1fa2dac363677b5f37acf9dce7a28c183f7b12b834af
+senderPublicKey - f9cecd0a2d38afcb4a799ec7e7c718ce451053bd2a2924c15fbd5922aa915825
+subtype - 0
+blockTimestamp - 15542091
+signatureHash - b3b84e57b77c0a8d5bfaaf21d54aabdd3d00d86d1c6fe6b69cbb8ecb462be8e1
+height - 105809
+deadline - 180
+timestamp - 15542040
+block - 7021906725468463205
+senderRS - NXT-L6PJ-SMZ2-5TDB-GA7J2
+recipient - 14148504165393564086
+recipientRS - NXT-Q2FQ-LGAQ-H3AL-EPEQA
+confirmations - 4
+amountNQT - 1500000000000
+feeNQT - 100000000
+transaction - 7658132087383644010
+signature - 49eb8478e2e34b08bf1e78e9e2a92bcd7ce4c61bda548f1711e21cd0baf3bc0afd48c6fd57191a9462668adedb35925ee7d7181c833fb4f4cc29d647aae69818
+type - 0
+^^^^^^^^^^^^^^^^^
+
+vvvvvvvvvvvvvvvvvvsender - 16159101027034403504
+fullHash - 6ad785178f26476ae57e1fa2dac363677b5f37acf9dce7a28c183f7b12b834af
+senderPublicKey - f9cecd0a2d38afcb4a799ec7e7c718ce451053bd2a2924c15fbd5922aa915825
+subtype - 0
+blockTimestamp - 15542091
+signatureHash - b3b84e57b77c0a8d5bfaaf21d54aabdd3d00d86d1c6fe6b69cbb8ecb462be8e1
+height - 105809
+deadline - 180
+timestamp - 15542040
+block - 7021906725468463205
+senderRS - NXT-L6PJ-SMZ2-5TDB-GA7J2
+recipient - 14148504165393564086
+recipientRS - NXT-Q2FQ-LGAQ-H3AL-EPEQA
+confirmations - 4
+amountNQT - 1500000000000
+feeNQT - 100000000
+transaction - 7658132087383644010
+signature - 49eb8478e2e34b08bf1e78e9e2a92bcd7ce4c61bda548f1711e21cd0baf3bc0afd48c6fd57191a9462668adedb35925ee7d7181c833fb4f4cc29d647aae69818
+type - 0
+^^^^^^^^^^^^^^^^^

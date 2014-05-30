@@ -1,0 +1,10 @@
+pyuic4 -o ui_nxtWin0.py nxtWin0_h900.ui 
+pyuic4 -o ui_nxtWin1.py nxtWin1_h900.ui
+pyuic4 -o ui_nxtWin2.py nxtWin2_h900.ui 
+pyuic4 -o ui_nxtWin3.py nxtWin3_h900.ui 
+pyuic4 -o ui_nxtWin4.py nxtWin4_h900.ui 
+pyuic4 -o ui_nxtWin5.py nxtWin5_h900.ui 
+pyuic4 -o ui_nxtWin6.py nxtWin6_h900.ui
+pyuic4 -o ui_nxtWin7.py nxtWin7_h900.ui
+ 
+
