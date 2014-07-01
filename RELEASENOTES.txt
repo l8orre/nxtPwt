@@ -1,5 +1,5 @@
 
-Welcome to FreeRider beta0.1.1 - Mar.18, 2014
+Welcome to nxtPowertools Jul.1., 2014
 
 
 
@@ -50,10 +50,6 @@ The line edit on API access is for display only, the connection can not be chang
 This is written to in 'append' mode.
 
 To SEND MONEY, each line edit (recipient, fee, amount, deadline) must be confirmed with a <return> key.
-
-
-
-
 
 
 
