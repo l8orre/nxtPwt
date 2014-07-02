@@ -41,7 +41,7 @@ class nxtApi(Qt.QObject):
     """ class to check state and emit signals when changes have occurred-   
             currently implementing ..
 
-             broadcastTransaction
+broadcastTransaction
 buyAlias
 calculateFullHash
 cancelAskOrder
@@ -274,6 +274,10 @@ transferAsset
 
     parseTransaction_Sig =  pyqtSignal(dict,dict)
 
+    placeAskOrder_Sig =  pyqtSignal(dict,dict)
+
+    placeBidOrdere_Sig =  pyqtSignal(dict,dict)
+
     readEncryptedNote_Sig =  pyqtSignal(dict,dict)
 
     rsConvert_Sig =  pyqtSignal(dict,dict)
@@ -286,17 +290,17 @@ transferAsset
 
     sendMoney_Sig =  pyqtSignal(dict,dict)
 
-    setAccountInfo_Sig =  pyqtSignal(dict,dict)
+    setAccountInfo_Sig =  pyqtSignal(dict,dict)    #80
 
     setAlias_Sig =  pyqtSignal(dict,dict)
 
-    signTransaction_Sig =  pyqtSignal(dict,dict)    #80
+    signTransaction_Sig =  pyqtSignal(dict,dict)
 
     startForging_Sig =  pyqtSignal(dict,dict)
 
     stopForging_Sig =  pyqtSignal(dict,dict)
 
-    transferAsset_Sig=  pyqtSignal(dict,dict) #83
+    transferAsset_Sig=  pyqtSignal(dict,dict) #85
 
     catchAll_Sig =  pyqtSignal(dict, dict)
 
@@ -393,12 +397,6 @@ transferAsset
     #
     # regular api calls
         #
-        #
-        #
-        #
-
-
-
 
     @pyqtSlot() # 24
     def broadcastTransaction_Slot(self,apiReq, meta = {}):
@@ -1411,7 +1409,7 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.stopForging_Sig)
         self.qPool.start(self.replyFetcher)
 
-    @pyqtSlot() # 38
+    @pyqtSlot() # 85
     def transferAsset_Slot(self,apiReq, meta = {}):
         """   """
         self.req.params=apiReq # same obj, only replace params

@@ -22,6 +22,19 @@ THE SOFTWARE.
 
 """
 
+        #
+        # #1
+        # self.assignAlias = {
+        #                                 "requestType" : "assignAlias" , \
+        #                                 "secretPhrase" : "PASSPHRASE" ,\
+        #                                 "alias": "ALIAS" ,\
+        #                                 "uri" : "URI" ,\
+        #                                 "deadline":"DEADLINE" ,\
+        #                                 "publicKey":"",\
+        #                                 "referencedTransaction" : "",\
+        #                                 "feeNQT" : "100000000"
+        #                                  }
+        #
 
 
 class nxtQs(object):
@@ -29,23 +42,32 @@ class nxtQs(object):
 
     def __init__(self):
 
-        #1
-        self.assignAlias = {
-                                        "requestType" : "assignAlias" , \
-                                        "secretPhrase" : "PASSPHRASE" ,\
-                                        "alias": "ALIAS" ,\
-                                        "uri" : "URI" ,\
-                                        "deadline":"DEADLINE" ,\
-                                        "publicKey":"",\
-                                        "referencedTransaction" : "",\
-                                        "feeNQT" : "100000000"
-                                         }
         #2
         self.broadcastTransaction= {
                                         "requestType" : "broadcastTransaction" , \
                                         "transactionBytes" : "transactionBytes"
                                         }
-        #3
+
+        self.buyAlias = {
+                                        "requestType" : "buyAlias" , \
+                                        "alias" : "" , \
+                                        "aliasName" : "" , \
+                                        "priceNQT" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : ""
+        }
+
+
+        self.calculateFullHash = {
+                    "requestType" : "calculateFullHash", \
+                                        "unsignedTransactionBytes" : "" , \
+                                        "signatureHash" : ""
+        }
+
         self.cancelAskOrder= {
                                         "requestType" : "cancelAskOrder" , \
                                         "secretPhrase" : "PASSPHRASE" ,\
@@ -102,6 +124,133 @@ class nxtQs(object):
                                         "website" :"WEBSITE" ,\
                                         "token" : "AUTHSTRING"
                                         }
+
+        self.decryptFrom = {
+                    "requestType" : "decryptFrom", \
+                                        "account" : "" , \
+                                        "data" : "" , \
+                                        "nonce" : "" , \
+                                        "secretPhrase" : ""
+                }
+
+        self.dgsDelisting = {
+                    "requestType" : "dgsDelisting", \
+                                        "goods" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+
+                }
+
+        self.dgsDelivery = {
+                    "requestType" : "dgsDelivery", \
+                                        "purchase" : "" , \
+                                        "discountNQT" : "" , \
+                                        "goodsData" : "" , \
+                                        "goodsText" : "" , \
+                                        "encryptedGoodsData" : "" , \
+                                        "encryptedGoodsNonce" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,
+                }
+
+        self.dgsFeedback = {
+                    "requestType" : "dgsFeedback", \
+                                        "purchase" : "" , \
+                                        "note" : "" , \
+                                        "encryptedNote" : "" , \
+                                        "encryptedNoteNonce" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+
+        self.dgsListing = {
+                    "requestType" : "dgsListing", \
+                                        "name" : "" , \
+                                        "description" : "" , \
+                                        "tags" : "" , \
+                                        "quantity" : "" , \
+                                        "priceNQT" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+
+                }
+        self.dgsPriceChange = {
+                    "requestType" : "dgsPriceChange", \
+                                        "goods" : "" , \
+                                        "priceNQT" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+        self.dgsPurchase = {
+                    "requestType" : "dgsPurchase", \
+                                        "goods" : "" , \
+                                        "priceNQT" : "" , \
+                                        "quantity" : "" , \
+                                        "deliveryDeadlineTimestamp" : "" , \
+                                        "note" : "" , \
+                                        "encryptedNote" : "" , \
+                                        "encryptedNoteNonce" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+
+        self.dgsQuantityChange = {
+                    "requestType" : "dgsQuantityChange", \
+                                        "goods" : "" , \
+                                        "deltaQuantity" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+
+        self.dgsRefund = {
+                    "requestType" : "dgsRefund", \
+                                        "purchase" : "" , \
+                                        "refundNQT" : "" , \
+                                        "note" : "" , \
+                                        "encryptedNote" : "" , \
+                                        "encryptedNoteNonce" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+        self.encryptTo = {
+                    "requestType" : "encryptTo", \
+                                        "recipient" : "" , \
+                                        "note" : "" , \
+                                        "secretPhrase" : ""
+                }
+
         #9
         self.generateToken = {
                                         "requestType" : "generateToken" ,  \
@@ -154,21 +303,12 @@ class nxtQs(object):
                                         "requestType" : "getAlias" , \
                                         "alias" : "aliasId"
                                         }
-        #18
-        self.getAliasId = {
-                                        "requestType" : "getAliasId" , \
-                                        "alias" : "ALIAS"
-                                        }
-        #19
-        self.getAliasIds= {
-                                        "requestType" : "getAliasIds" , \
-                                        "timestamp" : "TIMESTAMP"
-                                        }
-        #20
-        self.getAliasURI= {
-                                        "requestType" : "getAliasURI" , \
-                                        "alias" : "ALIAS"
-                                        }
+
+        self.getAliases = {
+                    "requestType" : "getAliases", \
+                                        "timestamp" : "" , \
+                                        "account" : ""
+                }
         #56
         self.getAllAssets = {
                                         "requestType" : "getAllAssets"
@@ -194,6 +334,12 @@ class nxtQs(object):
                                         "asset" : "assetId", \
                                         "limit":""
                                         }
+
+        self.getAskOrders = {
+                    "requestType" : "getAskOrders", \
+                                        "asset" : "" , \
+                                        "limit" : ""
+                }
         #25
         self.getAsset = {
                                         "requestType" : "getAsset" ,\
@@ -210,13 +356,14 @@ class nxtQs(object):
                                         "assets" : "assets",\
                                         "assets" : "etc"
                                         }
-        #27
-        self.getAssetsByName= {
-                                        "requestType" : "getAssetsByName" , \
-                                        "assetName" : "assetName" , \
-                                        }
-        #assets - [{'account': '18232225178877143084', 'description': 'multigateway USD', 'name': 'USD', 'quantity': 1000000000, 'asset': '3759130218572630531', 'numberOfTrades': 0}]
-        #28
+
+        self.getAssetsByIssuer = {
+                    "requestType" : "getAssetsByIssuer", \
+                                        "account" : "" , \
+                                        "account" : "" , \
+                                        "account" : ""
+                }
+         #28
         self.getBalance = {
                                         "requestType" : "getBalance", \
                                         "account" : "ACCNUM" \
@@ -232,16 +379,61 @@ class nxtQs(object):
                                         "asset" : "assetId",\
                                         "limit":""
                                         }
-        #31
+
+        self.getBidOrders = {
+                    "requestType" : "getBidOrders", \
+                                        "asset" : "" , \
+                                        "limit" : ""
+                }
         self.getBlock= {
                                         "requestType" : "getBlock" , \
                                         "block" : "BLOCKADDRESS"
                                         }
+
+        self.getBlockId = {
+                    "requestType" : "getBlockId", \
+                                        "height" : ""
+                }
+
+        self.getBlockchainStatus = {
+                                        "requestType" : "getBlockchainStatus",
+                                    }
         #32
         self.getConstants= {
                                         "requestType" : "getConstants"
                                         }
 
+
+        self.getDGSGood = {
+                    "requestType" : "getDGSGood", \
+                                        "goods" : ""
+                }
+        self.getDGSGoods = {
+                    "requestType" : "getDGSGoods", \
+                                        "seller" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "inStockOnly" : ""
+                }
+        self.getDGSPendingPurchases = {
+                    "requestType" : "getDGSPendingPurchases", \
+                                        "seller" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : ""
+                }
+        self.getDGSPurchase = {
+                    "requestType" : "getDGSPurchase", \
+                                        "purchase" : ""
+                }
+
+        self.getDGSPurchases = {
+                    "requestType" : "getDGSPurchases", \
+                                        "seller" : "" , \
+                                        "buyer" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "completed" : ""
+                }
         #33
         self.getForging= {
                                         "requestType" : "getForging" , \
@@ -258,6 +450,10 @@ class nxtQs(object):
         self.getMyInfo= {
                                         "requestType" : "getMyInfo"
                                        }
+
+        self.getNextBlockGenerators = {
+                                        "requestType" : "getNextBlockGenerators"
+                                        }
         #36
         self.getPeer= {
                                         "requestType" : "getPeer" ,\
@@ -306,6 +502,12 @@ class nxtQs(object):
                                         "requestType" : "getUnconfirmedTransactionIds" , \
                                         "account":       "ACCNUM", \
                                         }
+
+        self.getUnconfirmedTransactions = {
+                    "requestType" : "getUnconfirmedTransactions", \
+                                        "account" : "" , \
+
+                }
         #46
         self.issueAsset= {
                                         "requestType" : "issueAsset" , \
@@ -332,11 +534,6 @@ class nxtQs(object):
                                         "period" : "1440"
                                          }
 
-        #48
-        self.listAccountAliases= {
-                                        "requestType" : "listAccountAliases" , \
-                                         "account" : "0"
-                                        }
         #49
         self.markHost= {
                                         "requestType" : "markHost" , \
@@ -376,6 +573,43 @@ class nxtQs(object):
                                         "deadline" : "180" ,\
                                         "feeNQT" : "100000000"
                                          }
+
+        self.readEncryptedNote = {
+                                        "requestType" : "readEncryptedNote", \
+                                        "secretPhrase" : "" , \
+                                        "transaction" : ""
+                }
+        self.rsConvert = {
+                                        "requestType" : "rsConvert", \
+                                        "account" : ""
+                }
+
+        self.sellAlias = {
+                                        "requestType" : "sellAlias", \
+                                        "alias" : "" , \
+                                        "aliasName" : "" , \
+                                        "recipient" : "" , \
+                                        "priceNQT" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
+        self.sendEncryptedNote = {
+                                        "requestType" : "sendEncryptedNote", \
+                                        "recipient" : "" , \
+                                        "note" : "" , \
+                                        "encryptedNote" : "" , \
+                                        "encryptedNoteNonce" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" , \
+                }
         #53
         self.sendMessage= {
                                         "requestType" : "sendMessage" ,\
@@ -413,6 +647,18 @@ class nxtQs(object):
                                          } #"recipient" : "" ,\ ???
 
 
+
+        self.setAlias = {
+                                        "requestType" : "setAlias", \
+                                        "aliasName" : "" , \
+                                        "aliasURI" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "100000000" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : ""
+                                        }
         #56
         self.signTransaction = {
                                         "requestType" : "signTransaction" ,  \
