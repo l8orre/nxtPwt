@@ -69,68 +69,175 @@ class nxtWin7Control(QObject):
         #
         # These buttons prepare the query by filling the lineedits with the query components:
         #
-        QtCore.QObject.connect(ui.pb_getAccountId , SIGNAL("clicked()"), self.getAccountIdCB )
-        QtCore.QObject.connect(ui.pb_getAccountBlockIds , SIGNAL("clicked()"), self.getAccountBlockIdsCB )
-        QtCore.QObject.connect(ui.pb_getBalance , SIGNAL("clicked()"), self.getBalanceCB )
-        QtCore.QObject.connect(ui.pb_getAccountPublicKey , SIGNAL("clicked()"), self.getAccountPublicKeyCB )
-        QtCore.QObject.connect(ui.pb_getGuaranteedBalance , SIGNAL("clicked()"), self.getGuaranteedBalanceCB )
-        QtCore.QObject.connect(ui.pb_getAliasId , SIGNAL("clicked()"), self.getAliasIdCB )
-        QtCore.QObject.connect(ui.pb_getConstants , SIGNAL("clicked()"), self.getConstantsCB )
-        QtCore.QObject.connect(ui.pb_getMyInfo , SIGNAL("clicked()"), self.getMyInfoCB )
-        QtCore.QObject.connect(ui.pb_getState , SIGNAL("clicked()"), self.getStateCB )
-        QtCore.QObject.connect(ui.pb_getBlock , SIGNAL("clicked()"), self.getBlockCB )
-        QtCore.QObject.connect(ui.pb_getPeer , SIGNAL("clicked()"), self.getPeerCB )
-        QtCore.QObject.connect(ui.pb_getPeers , SIGNAL("clicked()"), self.getPeersCB )
-        QtCore.QObject.connect(ui.pb_getTime , SIGNAL("clicked()"), self.getTimeCB )
-        QtCore.QObject.connect(ui.pb_markHost , SIGNAL("clicked()"), self.markHostCB )
-        QtCore.QObject.connect(ui.pb_decodeHallmark , SIGNAL("clicked()"), self.decodeHallmarkCB )
-        QtCore.QObject.connect(ui.pb_sendMoney , SIGNAL("clicked()"), self.sendMoneyCB )
-        QtCore.QObject.connect(ui.pb_decodeToken , SIGNAL("clicked()"), self.decodeTokenCB )
-        QtCore.QObject.connect(ui.pb_sendMessage , SIGNAL("clicked()"), self.sendMessageCB )
-        QtCore.QObject.connect(ui.pb_getAliasIds , SIGNAL("clicked()"), self.getAliasIdsCB )
-        QtCore.QObject.connect(ui.pb_getAliasURI , SIGNAL("clicked()"), self.getAliasURICB )
-        QtCore.QObject.connect(ui.pb_listAccountAliases , SIGNAL("clicked()"), self.listAccountAliasesCB)
-        QtCore.QObject.connect(ui.pb_assignAlias , SIGNAL("clicked()"), self.assignAliasCB)
-        QtCore.QObject.connect(ui.pb_getAccountTransactionIds , SIGNAL("clicked()"), self.getAccountTransactionIdsCB )
+
         QtCore.QObject.connect(ui.pb_broadcastTransaction , SIGNAL("clicked()"), self.broadcastTransactionCB )
-        QtCore.QObject.connect(ui.pb_getUnconfirmedTransactionIds , SIGNAL("clicked()"), self.getUnconfirmedTransactionIdsCB )
-        QtCore.QObject.connect(ui.pb_getTransaction , SIGNAL("clicked()"), self.getTransactionCB )
-        QtCore.QObject.connect(ui.pb_getTransactionBytes , SIGNAL("clicked()"), self.getTransactionBytesCB )
-        QtCore.QObject.connect(ui.pb_getAskOrder , SIGNAL("clicked()"), self.getAskOrderCB )
-        QtCore.QObject.connect(ui.pb_getAskOrderIds , SIGNAL("clicked()"), self.getAskOrderIdsCB )
-        QtCore.QObject.connect(ui.pb_getBidOrder , SIGNAL("clicked()"), self.getBidOrderCB )
-        QtCore.QObject.connect(ui.pb_getBidOrderIds , SIGNAL("clicked()"), self.getBidOrderIdsCB )
+
         QtCore.QObject.connect(ui.pb_cancelAskOrder , SIGNAL("clicked()"), self.cancelAskOrderCB )
+
         QtCore.QObject.connect(ui.pb_cancelBidOrder , SIGNAL("clicked()"), self.cancelBidOrderCB )
-        QtCore.QObject.connect(ui.pb_placeAskOrder , SIGNAL("clicked()"), self.placeAskOrderCB )
-        QtCore.QObject.connect(ui.pb_placeBidOrder , SIGNAL("clicked()"), self.placeBidOrderCB )
-        QtCore.QObject.connect(ui.pb_getAsset , SIGNAL("clicked()"), self.getAssetCB )
-        QtCore.QObject.connect(ui.pb_getAssetIds , SIGNAL("clicked()"), self.getAssetIdsCB )
-        QtCore.QObject.connect(ui.pb_issueAsset , SIGNAL("clicked()"), self.issueAssetCB )
-        QtCore.QObject.connect(ui.pb_transferAsset , SIGNAL("clicked()"), self.transferAssetCB )
-        QtCore.QObject.connect(ui.pb_getAccountCurrentBidOrderIds , SIGNAL("clicked()"), self.getAccountCurrentBidOrderIdsCB  )
-        QtCore.QObject.connect(ui.pb_getAccountCurrentAskOrderIds , SIGNAL("clicked()"), self.getAccountCurrentAskOrderIdsCB )
-        QtCore.QObject.connect(ui.pb_getAccount , SIGNAL("clicked()"), self.getAccountCB ) #42
-        QtCore.QObject.connect(ui.pb_getTrades , SIGNAL("clicked()"), self.getTradesCB ) #43
-        QtCore.QObject.connect(ui.pb_startForging , SIGNAL("clicked()"), self.startForgingCB ) #44
-        QtCore.QObject.connect(ui.pb_stopForging , SIGNAL("clicked()"), self.stopForgingCB ) #45
-        QtCore.QObject.connect(ui.pb_generateToken , SIGNAL("clicked()"), self.generateTokenCB ) #46
-        QtCore.QObject.connect(ui.pb_getPollIds , SIGNAL("clicked()"), self.getPollIdsCB ) #47
-        QtCore.QObject.connect(ui.pb_getPoll , SIGNAL("clicked()"), self.getPollCB ) #48
+
         QtCore.QObject.connect(ui.pb_castVote , SIGNAL("clicked()"), self.castVoteCB ) #49
+
         QtCore.QObject.connect(ui.pb_createPoll , SIGNAL("clicked()"), self.createPollCB ) #51
+
+        QtCore.QObject.connect(ui.pb_decodeHallmark , SIGNAL("clicked()"), self.decodeHallmarkCB )
+
+        QtCore.QObject.connect(ui.pb_decodeToken , SIGNAL("clicked()"), self.decodeTokenCB )
+
+        QtCore.QObject.connect(ui.pb_decryptFrom , SIGNAL("clicked()"), self.decryptFromCB )
+
+        QtCore.QObject.connect(ui.pb_dgsDelisting , SIGNAL("clicked()"), self.dgsDelistingCB )
+
+        QtCore.QObject.connect(ui.pb_dgsDelivery , SIGNAL("clicked()"), self.dgsDeliveryCB )
+
+        QtCore.QObject.connect(ui.pb_dgsFeedback , SIGNAL("clicked()"), self.dgsFeedbackCB )
+
+        QtCore.QObject.connect(ui.pb_dgsListing, SIGNAL("clicked()"), self.dgsListingCB )
+
+        QtCore.QObject.connect(ui.pb_dgsPriceChange , SIGNAL("clicked()"), self.dgsPriceChangeCB )
+
+        QtCore.QObject.connect(ui.pb_dgsPurchase , SIGNAL("clicked()"), self.dgsPurchaseCB )
+
+        QtCore.QObject.connect(ui.pb_dgsQuantityChange , SIGNAL("clicked()"), self.dgsQuantityChangeCB )
+
+        QtCore.QObject.connect(ui.pb_dgsRefund , SIGNAL("clicked()"), self.dgsRefundCB )
+
+        QtCore.QObject.connect(ui.pb_encryptTo , SIGNAL("clicked()"), self.encryptToCB )
+
+        QtCore.QObject.connect(ui.pb_generateToken , SIGNAL("clicked()"), self.generateTokenCB ) #46
+
+        QtCore.QObject.connect(ui.pb_getAccount , SIGNAL("clicked()"), self.getAccountCB ) #42
+
+        QtCore.QObject.connect(ui.pb_getAccountBlockIds , SIGNAL("clicked()"), self.getAccountBlockIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getAccountCurrentBidOrderIds , SIGNAL("clicked()"), self.getAccountCurrentBidOrderIdsCB  )
+
+        QtCore.QObject.connect(ui.pb_getAccountCurrentAskOrderIds , SIGNAL("clicked()"), self.getAccountCurrentAskOrderIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getAccountId , SIGNAL("clicked()"), self.getAccountIdCB )
+
+        QtCore.QObject.connect(ui.pb_getAccountPublicKey , SIGNAL("clicked()"), self.getAccountPublicKeyCB )
+
+        QtCore.QObject.connect(ui.pb_getAccountTransactionIds , SIGNAL("clicked()"), self.getAccountTransactionIdsCB )
+
         QtCore.QObject.connect(ui.pb_getAlias , SIGNAL("clicked()"), self.getAliasCB ) #51
+
+        QtCore.QObject.connect(ui.pb_getAliases , SIGNAL("clicked()"), self.getAliasesCB )
+
+        QtCore.QObject.connect(ui.pb_getAllAssets , SIGNAL("clicked()"), self.getAllAssetsCB ) #50
+
         QtCore.QObject.connect(ui.pb_getAllOpenOrders , SIGNAL("clicked()"), self.getAllOpenOrdersCB ) #52
-        QtCore.QObject.connect(ui.pb_getAssetsByName , SIGNAL("clicked()"), self.getAssetsByNameCB ) #53
-        QtCore.QObject.connect(ui.pb_getForging , SIGNAL("clicked()"), self.getForgingCB ) #54
+
         QtCore.QObject.connect(ui.pb_getAllTrades , SIGNAL("clicked()"), self.getAllTradesCB ) #55
+
+        QtCore.QObject.connect(ui.pb_getAskOrder , SIGNAL("clicked()"), self.getAskOrderCB )
+
+        QtCore.QObject.connect(ui.pb_getAskOrderIds , SIGNAL("clicked()"), self.getAskOrderIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getAskOrders , SIGNAL("clicked()"), self.getAskOrdersCB )
+
+        QtCore.QObject.connect(ui.pb_getAsset , SIGNAL("clicked()"), self.getAssetCB )
+
+        QtCore.QObject.connect(ui.pb_getAssetIds , SIGNAL("clicked()"), self.getAssetIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getAssets , SIGNAL("clicked()"), self.getAssetsCB ) #50
+
+        QtCore.QObject.connect(ui.pb_getBalance , SIGNAL("clicked()"), self.getBalanceCB )
+
+        QtCore.QObject.connect(ui.pb_getBidOrder , SIGNAL("clicked()"), self.getBidOrderCB )
+
+        QtCore.QObject.connect(ui.pb_getBidOrderIds , SIGNAL("clicked()"), self.getBidOrderIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getBidOrders , SIGNAL("clicked()"), self.getBidOrdersCB )
+
+        QtCore.QObject.connect(ui.pb_getBlock , SIGNAL("clicked()"), self.getBlockCB )
+
+        QtCore.QObject.connect(ui.pb_getBlockId , SIGNAL("clicked()"), self.getBlockIdCB )
+
+        QtCore.QObject.connect(ui.pb_getBlockchainStatus , SIGNAL("clicked()"), self.getBlockchainStatusCB )
+
+        QtCore.QObject.connect(ui.pb_getConstants , SIGNAL("clicked()"), self.getConstantsCB )
+
+        QtCore.QObject.connect(ui.pb_getConstants , SIGNAL("clicked()"), self.getConstantsCB )
+
+        QtCore.QObject.connect(ui.pb_getDGSGood , SIGNAL("clicked()"), self.getDGSGoodCB )
+
+        QtCore.QObject.connect(ui.pb_getDGSGoods , SIGNAL("clicked()"), self.getDGSGoodsCB )
+
+        QtCore.QObject.connect(ui.pb_getDGSPendingPurchases , SIGNAL("clicked()"), self.getDGSPendingPurchasesCB )
+
+        QtCore.QObject.connect(ui.pb_getDGSPurchase , SIGNAL("clicked()"), self.getDGSPurchaseCB )
+
+        QtCore.QObject.connect(ui.pb_getDGSPurchases , SIGNAL("clicked()"), self.getDGSPurchasesCB )
+
+        QtCore.QObject.connect(ui.pb_getForging , SIGNAL("clicked()"), self.getForgingCB ) #54
+
+        QtCore.QObject.connect(ui.pb_getGuaranteedBalance , SIGNAL("clicked()"), self.getGuaranteedBalanceCB )
+
+        QtCore.QObject.connect(ui.pb_getMyInfo , SIGNAL("clicked()"), self.getMyInfoCB )
+
+        QtCore.QObject.connect(ui.pb_getNextBlockGenerators , SIGNAL("clicked()"), self.getNextBlockGeneratorsCB )
+
+        QtCore.QObject.connect(ui.pb_getPeer , SIGNAL("clicked()"), self.getPeerCB )
+
+        QtCore.QObject.connect(ui.pb_getPeers , SIGNAL("clicked()"), self.getPeersCB )
+
+        QtCore.QObject.connect(ui.pb_getPoll , SIGNAL("clicked()"), self.getPollCB ) #48
+
+        QtCore.QObject.connect(ui.pb_getPollIds , SIGNAL("clicked()"), self.getPollIdsCB ) #47
+
+        QtCore.QObject.connect(ui.pb_getState , SIGNAL("clicked()"), self.getStateCB )
+
+        QtCore.QObject.connect(ui.pb_getTime , SIGNAL("clicked()"), self.getTimeCB )
+
+        QtCore.QObject.connect(ui.pb_getTrades , SIGNAL("clicked()"), self.getTradesCB ) #43
+
+        QtCore.QObject.connect(ui.pb_getTransaction , SIGNAL("clicked()"), self.getTransactionCB )
+
+        QtCore.QObject.connect(ui.pb_getTransactionBytes , SIGNAL("clicked()"), self.getTransactionBytesCB )
+
+        QtCore.QObject.connect(ui.pb_getUnconfirmedTransactionIds , SIGNAL("clicked()"), self.getUnconfirmedTransactionIdsCB )
+
+        QtCore.QObject.connect(ui.pb_getUnconfirmedTransactions , SIGNAL("clicked()"), self.getUnconfirmedTransactionsCB )
+
+        QtCore.QObject.connect(ui.pb_issueAsset , SIGNAL("clicked()"), self.issueAssetCB )
+
         QtCore.QObject.connect(ui.pb_leaseBalance , SIGNAL("clicked()"), self.leaseBalanceCB ) #56
-        QtCore.QObject.connect(ui.pb_setAccountInfo , SIGNAL("clicked()"), self.setAccountInfoCB ) #57
+
+        QtCore.QObject.connect(ui.pb_markHost , SIGNAL("clicked()"), self.markHostCB )
+
         QtCore.QObject.connect(ui.pb_parseTransaction , SIGNAL("clicked()"), self.parseTransactionCB ) #50
 
+        QtCore.QObject.connect(ui.pb_placeAskOrder , SIGNAL("clicked()"), self.placeAskOrderCB )
+
+        QtCore.QObject.connect(ui.pb_placeBidOrder , SIGNAL("clicked()"), self.placeBidOrderCB )
+
+        QtCore.QObject.connect(ui.pb_readEncryptedNote , SIGNAL("clicked()"), self.readEncryptedNoteCB )
+
+        QtCore.QObject.connect(ui.pb_rsConvert , SIGNAL("clicked()"), self.rsConvertCB )
+
+        QtCore.QObject.connect(ui.pb_sellAlias , SIGNAL("clicked()"), self.sellAliasCB )
+
+        QtCore.QObject.connect(ui.pb_sendEncryptedNote , SIGNAL("clicked()"), self.sendEncryptedNoteCB )
+
+        QtCore.QObject.connect(ui.pb_sendMessage , SIGNAL("clicked()"), self.sendMessageCB )
+
+        QtCore.QObject.connect(ui.pb_sendMoney , SIGNAL("clicked()"), self.sendMoneyCB )
+
+        QtCore.QObject.connect(ui.pb_setAccountInfo , SIGNAL("clicked()"), self.setAccountInfoCB ) #57
+
+        QtCore.QObject.connect(ui.pb_setAlias , SIGNAL("clicked()"), self.setAliasCB )
+
         QtCore.QObject.connect(ui.pb_signTransaction , SIGNAL("clicked()"), self.signTransactionCB ) #50
-        QtCore.QObject.connect(ui.pb_getAllAssets , SIGNAL("clicked()"), self.getAllAssetsCB ) #50
-        QtCore.QObject.connect(ui.pb_getAssets , SIGNAL("clicked()"), self.getAssetsCB ) #50
+
+        QtCore.QObject.connect(ui.pb_startForging , SIGNAL("clicked()"), self.startForgingCB ) #44
+
+        QtCore.QObject.connect(ui.pb_stopForging , SIGNAL("clicked()"), self.stopForgingCB ) #45
+
+        QtCore.QObject.connect(ui.pb_transferAsset , SIGNAL("clicked()"), self.transferAssetCB )
+
+
+ 
 
         # local ctrl widgets init their functions:
 
@@ -158,7 +265,7 @@ class nxtWin7Control(QObject):
         ui.lcdNumber_time7.setDigitCount(8)        #
         ui.lcdNumber_time7.setSegmentStyle(2)
 
-        ui.lineEdit1_nxtQ10_Val10.setEchoMode(QtGui.QLineEdit.Password) # this is exclusively used for PWs
+        ui.lineEdit1_nxtQ14_Val14.setEchoMode(QtGui.QLineEdit.Password) # this is exclusively used for PWs
 
         #print(self.app.sessMan.activeNRS.comp['serverAddr'])
         newConn = self.app.sessMan.activeNRS.comp['url']#[-5:] # - '/nxt?'
@@ -180,6 +287,10 @@ class nxtWin7Control(QObject):
                               ui.lineEdit1_nxtQ7, \
                               ui.lineEdit1_nxtQ8, \
                               ui.lineEdit1_nxtQ9, \
+                              ui.lineEdit1_nxtQ10, \
+                              ui.lineEdit1_nxtQ11, \
+                              ui.lineEdit1_nxtQ12, \
+                              ui.lineEdit1_nxtQ13, \
                               ]
 
         self.nxtQ_lineEdits_Vals=[ ui.lineEdit1_nxtQ1_Val1, \
@@ -191,6 +302,10 @@ class nxtWin7Control(QObject):
                                    ui.lineEdit1_nxtQ7_Val7, \
                                    ui.lineEdit1_nxtQ8_Val8, \
                                    ui.lineEdit1_nxtQ9_Val9,\
+                                   ui.lineEdit1_nxtQ9_Val10,\
+                                   ui.lineEdit1_nxtQ9_Val11,\
+                                   ui.lineEdit1_nxtQ9_Val12,\
+                                   ui.lineEdit1_nxtQ9_Val13,\
                                 ]
 
 
@@ -293,7 +408,7 @@ class nxtWin7Control(QObject):
         fillVals = iter(self.nxtQ_lineEdits_Vals)
         self.apiReq = {} # to send the call with later
         if 'secretPhrase' in self.apiCall: # special treat for passphr
-            fillVal = ui.lineEdit1_nxtQ10_Val10.text()
+            fillVal = ui.lineEdit1_nxtQ14_Val14.text()
             self.apiReq['secretPhrase'] = str(fillVal )
         for parmType in self.apiCall:
             if parmType =="secretPhrase": # specialtreatment for this one: always echoMode passphr
@@ -321,336 +436,11 @@ class nxtWin7Control(QObject):
         ui.lineEdit1_nxtQ9.clear()
         ui.lineEdit1_nxtQ9_Val9.clear()
 
-    def getAccountIdCB(self,): #1
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountId
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAccountBlockIdsCB(self,): #2
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountBlockIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
+    def _______________________temp_______(self):
+        pass
 
 
-    def getBalanceCB(self,):#3
-        self.clearLines()
-        self.apiCall = self.apiCalls.getBalance
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
 
-
-    def getAccountPublicKeyCB(self,):#4
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountPublicKey
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getGuaranteedBalanceCB(self,):#5
-        self.clearLines()
-        self.apiCall = self.apiCalls.getGuaranteedBalance
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAliasIdCB(self,):#6
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAliasId
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getConstantsCB(self,):#7
-        self.clearLines()
-        self.apiCall = self.apiCalls.getConstants
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getMyInfoCB(self,):#8
-        self.clearLines()
-        self.apiCall = self.apiCalls.getMyInfo
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getStateCB(self,):#9
-        self.clearLines()
-        self.apiCall = self.apiCalls.getState
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getBlockCB(self,):#10
-        self.clearLines()
-        self.apiCall = self.apiCalls.getBlock
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getPeerCB(self,):#11
-        self.clearLines()
-        self.apiCall = self.apiCalls.getPeer
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getPeersCB(self,):#12
-        self.clearLines()
-        self.apiCall = self.apiCalls.getPeers
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getTimeCB(self,):#13
-        self.clearLines()
-        self.apiCall = self.apiCalls.getTime
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def markHostCB(self,): #14
-        self.clearLines()
-        self.apiCall = self.apiCalls.markHost
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def decodeHallmarkCB(self,):#15
-        self.clearLines()
-        self.apiCall = self.apiCalls.decodeHallmark
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def sendMoneyCB(self,): #16
-        self.clearLines()
-        self.apiCall = self.apiCalls.sendMoney
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def decodeTokenCB(self,):#17
-        self.clearLines()
-        self.apiCall = self.apiCalls.decodeToken
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def sendMessageCB(self,): #18
-        self.clearLines()
-        self.apiCall = self.apiCalls.sendMessage
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getAliasIdsCB(self,):#19
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAliasIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAliasURICB(self,):#20
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAliasURI
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def listAccountAliasesCB(self,):#21
-        self.clearLines()
-        self.apiCall = self.apiCalls.listAccountAliases
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def assignAliasCB(self,): #22
-        self.clearLines()
-        self.apiCall = self.apiCalls.assignAlias
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getAccountTransactionIdsCB(self,):#23
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountTransactionIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
 
     def broadcastTransactionCB(self,):#24
         self.clearLines()
@@ -665,9 +455,30 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def getUnconfirmedTransactionIdsCB(self,):#25
+
+    def buyAliasCB(self,): #46
         self.clearLines()
-        self.apiCall = self.apiCalls.getUnconfirmedTransactionIds
+        self.apiCall = self.apiCalls.buyAlias
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def calculateFullHashCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.calculateFullHash
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -678,9 +489,86 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def getTransactionCB(self,):#26
+
+
+    def cancelAskOrderCB(self,): #32
         self.clearLines()
-        self.apiCall = self.apiCalls.getTransaction
+        self.apiCall = self.apiCalls.cancelAskOrder
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def cancelBidOrderCB(self,): #33
+        self.clearLines()
+        self.apiCall = self.apiCalls.cancelBidOrder
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def castVoteCB(self,): #49
+        self.clearLines()
+        self.apiCall = self.apiCalls.castVote
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def createPollCB(self,): #50
+        self.clearLines()
+        self.apiCall = self.apiCalls.createPoll
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def decodeHallmarkCB(self,):#15
+        self.clearLines()
+        self.apiCall = self.apiCalls.decodeHallmark
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -690,6 +578,399 @@ class nxtWin7Control(QObject):
             fillKey.setText(parmType)
             fillVal.setText(self.apiCall[parmType])
         return 0
+
+    def decodeTokenCB(self,):#17
+        self.clearLines()
+        self.apiCall = self.apiCalls.decodeToken
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def decryptFromCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.decryptFrom
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def dgsDelistingCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsDelisting
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def dgsDeliveryCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsDelivery
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def dgsFeedbackCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsFeedback
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def dgsListingCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsListing
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def dgsPriceChangeCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsPriceChange
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def dgsPurchaseCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsPurchase
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def dgsQuantityChangeCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsQuantityChange
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def dgsRefundCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.dgsRefund
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def encryptToCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.encryptTo
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def generateTokenCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.generateToken
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getAccountCB(self,): #2
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccount
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getAccountBlockIdsCB(self,): #2
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountBlockIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAccountCurrentBidOrderIdsCB(self,):#40
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountCurrentBidOrderIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAccountCurrentAskOrderIdsCB(self,):#41
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountCurrentAskOrderIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAccountIdCB(self,): #1
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountId
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAccountPublicKeyCB(self,):#4
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountPublicKey
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAccountTransactionIdsCB(self,):#23
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountTransactionIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getAliasCB(self,):#51
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAlias
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def  getAliasesCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAliases
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def getAllAssetsCB(self,):#60
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAllAssets
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getAllOpenOrdersCB(self,):#52
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAllOpenOrders
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getAllTradesCB(self,):#55
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAllTrades
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
 
     def getAskOrderCB(self,):#27
         self.clearLines()
@@ -718,9 +999,9 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def getBidOrderCB(self,):#30
+    def  getAskOrdersCB(self,):#24
         self.clearLines()
-        self.apiCall = self.apiCalls.getBidOrder
+        self.apiCall = self.apiCalls.getAskOrders
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -730,94 +1011,6 @@ class nxtWin7Control(QObject):
             fillKey.setText(parmType)
             fillVal.setText(self.apiCall[parmType])
         return 0
-
-    def getBidOrderIdsCB(self,):#31
-        self.clearLines()
-        self.apiCall = self.apiCalls.getBidOrderIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def cancelAskOrderCB(self,): #32
-        self.clearLines()
-        self.apiCall = self.apiCalls.cancelAskOrder
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def cancelBidOrderCB(self,): #33
-        self.clearLines()
-        self.apiCall = self.apiCalls.cancelBidOrder
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def placeAskOrderCB(self,): #34
-        self.clearLines()
-        self.apiCall = self.apiCalls.placeAskOrder
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def placeBidOrderCB(self,): #35
-        self.clearLines()
-        self.apiCall = self.apiCalls.placeBidOrder
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
 
 
     def getAssetCB(self,):#36
@@ -846,15 +1039,223 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def issueAssetCB(self,): #38
+
+    def getAssetsCB(self,):#61
         self.clearLines()
-        self.apiCall = self.apiCalls.issueAsset
+        self.apiCall = self.apiCalls.getAssets
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def  getAssetsByIssuerCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAssetsByIssuer
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def getBalanceCB(self,):#3
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBalance
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getBidOrderCB(self,):#30
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBidOrder
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getBidOrderIdsCB(self,):#31
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBidOrderIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def  getBidOrdersCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBidOrders
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def getBlockCB(self,):#10
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBlock
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def  getBlockIdCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBlockId
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def  getBlockchainStatusCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getBlockchainStatus
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getConstantsCB(self,):#7
+        self.clearLines()
+        self.apiCall = self.apiCalls.getConstants
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def  getDGSGoodCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getDGSGood
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def  getDGSGoodsCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getDGSGoods
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def  getDGSPendingPurchasesCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getDGSPendingPurchases
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def  getDGSPurchaseCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getDGSPurchase
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def  getDGSPurchasesCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getDGSPurchases
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def getForgingCB(self,): #54
+        self.clearLines()
+        self.apiCall = self.apiCalls.getForging
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
         if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
         for parmType in self.apiCall:
             if parmType =="secretPhrase":
                 continue
@@ -865,41 +1266,9 @@ class nxtWin7Control(QObject):
         return 0
 
 
-    def transferAssetCB(self,): #39
+    def getGuaranteedBalanceCB(self,):#5
         self.clearLines()
-        self.apiCall = self.apiCalls.transferAsset
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getAccountCurrentBidOrderIdsCB(self,):#40
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountCurrentBidOrderIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAccountCurrentAskOrderIdsCB(self,):#41
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAccountCurrentAskOrderIds
+        self.apiCall = self.apiCalls.getGuaranteedBalance
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -911,9 +1280,10 @@ class nxtWin7Control(QObject):
         return 0
 
 
-    def getTransactionBytesCB(self,):#42
+
+    def getMyInfoCB(self,):#8
         self.clearLines()
-        self.apiCall = self.apiCalls.getTransactionBytes
+        self.apiCall = self.apiCalls.getMyInfo
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -924,9 +1294,9 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def getAccountCB(self,):#42
+    def getNextBlockGeneratorsCB(self,):#24
         self.clearLines()
-        self.apiCall = self.apiCalls.getAccount
+        self.apiCall = self.apiCalls.getNextBlockGenerators
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
@@ -936,6 +1306,89 @@ class nxtWin7Control(QObject):
             fillKey.setText(parmType)
             fillVal.setText(self.apiCall[parmType])
         return 0
+
+
+    def getPeerCB(self,):#11
+        self.clearLines()
+        self.apiCall = self.apiCalls.getPeer
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getPeersCB(self,):#12
+        self.clearLines()
+        self.apiCall = self.apiCalls.getPeers
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getPollCB(self,):#48
+        self.clearLines()
+        self.apiCall = self.apiCalls.getPoll
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getPollIdsCB(self,):#47
+        self.clearLines()
+        self.apiCall = self.apiCalls.getPollIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def getStateCB(self,):#9
+        self.clearLines()
+        self.apiCall = self.apiCalls.getState
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getTimeCB(self,):#13
+        self.clearLines()
+        self.apiCall = self.apiCalls.getTime
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
 
     def getTradesCB(self,):#43
         self.clearLines()
@@ -951,6 +1404,357 @@ class nxtWin7Control(QObject):
         return 0
 
 
+
+    def getTransactionCB(self,):#26
+        self.clearLines()
+        self.apiCall = self.apiCalls.getTransaction
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def getTransactionBytesCB(self,):#42
+        self.clearLines()
+        self.apiCall = self.apiCalls.getTransactionBytes
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def getUnconfirmedTransactionIdsCB(self,):#25
+        self.clearLines()
+        self.apiCall = self.apiCalls.getUnconfirmedTransactionIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+    #
+    #
+
+
+
+    def  getUnconfirmedTransactionsCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.getUnconfirmedTransactions
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def issueAssetCB(self,): #38
+        self.clearLines()
+        self.apiCall = self.apiCalls.issueAsset
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+    def leaseBalanceCB(self,): #56
+        self.clearLines()
+        self.apiCall = self.apiCalls.leaseBalance
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def markHostCB(self,): #14
+        self.clearLines()
+        self.apiCall = self.apiCalls.markHost
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+    def parseTransactionCB(self,):#50
+        self.clearLines()
+        self.apiCall = self.apiCalls.parseTransaction
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def placeAskOrderCB(self,): #34
+        self.clearLines()
+        self.apiCall = self.apiCalls.placeAskOrder
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def placeBidOrderCB(self,): #35
+        self.clearLines()
+        self.apiCall = self.apiCalls.placeBidOrder
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+#
+
+    def readEncryptedNoteCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.readEncryptedNote
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+#
+
+    def  rsConvertCB(self,):#24
+        self.clearLines()
+        self.apiCall = self.apiCalls.rsConvert
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+#
+
+    def sellAliasCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.sellAlias
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+#
+
+    def sendEncryptedNoteCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.sendEncryptedNote
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+
+
+
+    def sendMessageCB(self,): #18
+        self.clearLines()
+        self.apiCall = self.apiCalls.sendMessage
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def sendMoneyCB(self,): #16
+        self.clearLines()
+        self.apiCall = self.apiCalls.sendMoney
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+
+    def setAccountInfoCB(self,): #57
+        self.clearLines()
+        self.apiCall = self.apiCalls.setAccountInfo
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+
+#
+
+    def setAliasCB(self,): #46
+        self.clearLines()
+        self.apiCall = self.apiCalls.setAlias
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
+    def signTransactionCB(self,): #59
+        self.clearLines()
+        self.apiCall = self.apiCalls.signTransaction
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        if 'secretPhrase' in self.apiCall: # special treat for passphr
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
+        for parmType in self.apiCall:
+            if parmType =="secretPhrase":
+                continue
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
     def startForgingCB(self,): #44
         self.clearLines()
         self.apiCall = self.apiCalls.startForging
@@ -958,8 +1762,8 @@ class nxtWin7Control(QObject):
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
         if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
         for parmType in self.apiCall:
             if parmType =="secretPhrase":
                 continue
@@ -977,8 +1781,8 @@ class nxtWin7Control(QObject):
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
         if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
         for parmType in self.apiCall:
             if parmType =="secretPhrase":
                 continue
@@ -988,15 +1792,17 @@ class nxtWin7Control(QObject):
             fillVal.setText(self.apiCall[parmType])
         return 0
 
-    def generateTokenCB(self,): #46
+
+
+    def transferAssetCB(self,): #39
         self.clearLines()
-        self.apiCall = self.apiCalls.generateToken
+        self.apiCall = self.apiCalls.transferAsset
         ui = self.ui_nxtWin7
         fillKeys = iter(self.nxtQ_lineEdits)
         fillVals = iter(self.nxtQ_lineEdits_Vals)
         if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
+            ui.lineEdit1_nxtQ14.setText('secretPhrase')
+            ui.lineEdit1_nxtQ14_Val14.setText(self.account.data['secretPhrase'])
         for parmType in self.apiCall:
             if parmType =="secretPhrase":
                 continue
@@ -1005,245 +1811,6 @@ class nxtWin7Control(QObject):
             fillKey.setText(parmType)
             fillVal.setText(self.apiCall[parmType])
         return 0
-
-
-    def getPollIdsCB(self,):#47
-        self.clearLines()
-        self.apiCall = self.apiCalls.getPollIds
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getPollCB(self,):#48
-        self.clearLines()
-        self.apiCall = self.apiCalls.getPoll
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def castVoteCB(self,): #49
-        self.clearLines()
-        self.apiCall = self.apiCalls.castVote
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def createPollCB(self,): #50
-        self.clearLines()
-        self.apiCall = self.apiCalls.createPoll
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getAliasCB(self,):#51
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAlias
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAllOpenOrdersCB(self,):#52
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAllOpenOrders
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAssetsByNameCB(self,):#53
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAssetsByName
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getForgingCB(self,): #54
-        self.clearLines()
-        self.apiCall = self.apiCalls.getForging
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def getAllTradesCB(self,):#55
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAllTrades
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def leaseBalanceCB(self,): #56
-        self.clearLines()
-        self.apiCall = self.apiCalls.leaseBalance
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-    def setAccountInfoCB(self,): #57
-        self.clearLines()
-        self.apiCall = self.apiCalls.setAccountInfo
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-
-    def parseTransactionCB(self,):#50
-        self.clearLines()
-        self.apiCall = self.apiCalls.parseTransaction
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-
-    def signTransactionCB(self,): #59
-        self.clearLines()
-        self.apiCall = self.apiCalls.signTransaction
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        if 'secretPhrase' in self.apiCall: # special treat for passphr
-            ui.lineEdit1_nxtQ10.setText('secretPhrase')
-            ui.lineEdit1_nxtQ10_Val10.setText(self.account.data['secretPhrase'])
-        for parmType in self.apiCall:
-            if parmType =="secretPhrase":
-                continue
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAllAssetsCB(self,):#60
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAllAssets
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-    def getAssetsCB(self,):#61
-        self.clearLines()
-        self.apiCall = self.apiCalls.getAssets
-        ui = self.ui_nxtWin7
-        fillKeys = iter(self.nxtQ_lineEdits)
-        fillVals = iter(self.nxtQ_lineEdits_Vals)
-        for parmType in self.apiCall:
-            fillKey = next(fillKeys)
-            fillVal = next(fillVals)
-            fillKey.setText(parmType)
-            fillVal.setText(self.apiCall[parmType])
-        return 0
-
-
-
 ############################
 ############################        
 ############################
