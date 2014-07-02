@@ -302,10 +302,10 @@ class nxtWin7Control(QObject):
                                    ui.lineEdit1_nxtQ7_Val7, \
                                    ui.lineEdit1_nxtQ8_Val8, \
                                    ui.lineEdit1_nxtQ9_Val9,\
-                                   ui.lineEdit1_nxtQ9_Val10,\
-                                   ui.lineEdit1_nxtQ9_Val11,\
-                                   ui.lineEdit1_nxtQ9_Val12,\
-                                   ui.lineEdit1_nxtQ9_Val13,\
+                                   ui.lineEdit1_nxtQ10_Val10,\
+                                   ui.lineEdit1_nxtQ11_Val11,\
+                                   ui.lineEdit1_nxtQ12_Val12,\
+                                   ui.lineEdit1_nxtQ13_Val13,\
                                 ]
 
 
@@ -435,11 +435,6 @@ class nxtWin7Control(QObject):
             lineEd.clear()
         ui.lineEdit1_nxtQ9.clear()
         ui.lineEdit1_nxtQ9_Val9.clear()
-
-    def _______________________temp_______(self):
-        pass
-
-
 
 
     def broadcastTransactionCB(self,):#24

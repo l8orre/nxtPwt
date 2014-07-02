@@ -357,6 +357,7 @@ class UC5_AE(nxtUseCaseMeta):
     uc5_getAssets_Sig = pyqtSignal(object, object)
     uc5_getAsset_Sig = pyqtSignal(object, object)
     uc5_getAssetIds_Sig = pyqtSignal(object, object)
+
     uc5_getAssetsByName_Sig = pyqtSignal(object, object)
 
     uc5_getAccountResid_Sig = pyqtSignal(object, object)

@@ -131,7 +131,7 @@ connection management.
             self.uc30 = nxtUseCases.nxtUC_apiAccess(self,   ) #
             self.uc30.initSignals()
     #
-            self.uc5_AE = nxtUseCases.UC5_AE(self,  )#
+    # getAssetsByName is gone       self.uc5_AE = nxtUseCases.UC5_AE(self,  )#
             self.uc6_AO = nxtUseCases.UC6_AO(self,  )#
             self.uc7_ATX = nxtUseCases.UC7_ATX(self,  )#
             self.uc8_Trades = nxtUseCases.UC8_Trades(self,  )#

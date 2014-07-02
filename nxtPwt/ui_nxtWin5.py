@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nxtWin5_h900.ui'
 #
-# Created: Mon May 26 12:24:44 2014
+# Created: Wed Jul  2 10:58:11 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
