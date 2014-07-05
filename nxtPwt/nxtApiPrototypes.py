@@ -22,19 +22,6 @@ THE SOFTWARE.
 
 """
 
-        #
-        # #1
-        # self.assignAlias = {
-        #                                 "requestType" : "assignAlias" , \
-        #                                 "secretPhrase" : "PASSPHRASE" ,\
-        #                                 "alias": "ALIAS" ,\
-        #                                 "uri" : "URI" ,\
-        #                                 "deadline":"DEADLINE" ,\
-        #                                 "publicKey":"",\
-        #                                 "referencedTransaction" : "",\
-        #                                 "feeNQT" : "100000000"
-        #                                  }
-        #
 
 
 class nxtQs(object):
@@ -42,7 +29,7 @@ class nxtQs(object):
 
     def __init__(self):
 
-        #2
+        #1
         self.broadcastTransaction= {
                                         "requestType" : "broadcastTransaction" , \
                                         "transactionBytes" : "transactionBytes"
@@ -59,11 +46,11 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : ""
-        }
+                                        }
 
 
         self.calculateFullHash = {
-                    "requestType" : "calculateFullHash", \
+                                        "requestType" : "calculateFullHash", \
                                         "unsignedTransactionBytes" : "" , \
                                         "signatureHash" : ""
         }
@@ -126,7 +113,7 @@ class nxtQs(object):
                                         }
 
         self.decryptFrom = {
-                    "requestType" : "decryptFrom", \
+                                        "requestType" : "decryptFrom", \
                                         "account" : "" , \
                                         "data" : "" , \
                                         "nonce" : "" , \
@@ -134,7 +121,7 @@ class nxtQs(object):
                 }
 
         self.dgsDelisting = {
-                    "requestType" : "dgsDelisting", \
+                                        "requestType" : "dgsDelisting", \
                                         "goods" : "" , \
                                         "secretPhrase" : "" , \
                                         "publicKey" : "" , \
@@ -146,7 +133,7 @@ class nxtQs(object):
                 }
 
         self.dgsDelivery = {
-                    "requestType" : "dgsDelivery", \
+                                        "requestType" : "dgsDelivery", \
                                         "purchase" : "" , \
                                         "discountNQT" : "" , \
                                         "goodsData" : "" , \
@@ -162,7 +149,7 @@ class nxtQs(object):
                 }
 
         self.dgsFeedback = {
-                    "requestType" : "dgsFeedback", \
+                                        "requestType" : "dgsFeedback", \
                                         "purchase" : "" , \
                                         "note" : "" , \
                                         "encryptedNote" : "" , \
@@ -176,7 +163,7 @@ class nxtQs(object):
                 }
 
         self.dgsListing = {
-                    "requestType" : "dgsListing", \
+                                        "requestType" : "dgsListing", \
                                         "name" : "" , \
                                         "description" : "" , \
                                         "tags" : "" , \
@@ -191,7 +178,7 @@ class nxtQs(object):
 
                 }
         self.dgsPriceChange = {
-                    "requestType" : "dgsPriceChange", \
+                                        "requestType" : "dgsPriceChange", \
                                         "goods" : "" , \
                                         "priceNQT" : "" , \
                                         "secretPhrase" : "" , \
@@ -202,7 +189,7 @@ class nxtQs(object):
                                         "broadcast" : "" , \
                 }
         self.dgsPurchase = {
-                    "requestType" : "dgsPurchase", \
+                                        "requestType" : "dgsPurchase", \
                                         "goods" : "" , \
                                         "priceNQT" : "" , \
                                         "quantity" : "" , \
@@ -219,7 +206,7 @@ class nxtQs(object):
                 }
 
         self.dgsQuantityChange = {
-                    "requestType" : "dgsQuantityChange", \
+                                        "requestType" : "dgsQuantityChange", \
                                         "goods" : "" , \
                                         "deltaQuantity" : "" , \
                                         "secretPhrase" : "" , \
@@ -231,7 +218,7 @@ class nxtQs(object):
                 }
 
         self.dgsRefund = {
-                    "requestType" : "dgsRefund", \
+                                        "requestType" : "dgsRefund", \
                                         "purchase" : "" , \
                                         "refundNQT" : "" , \
                                         "note" : "" , \
@@ -243,13 +230,13 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
-                }
+                                        }
         self.encryptTo = {
-                    "requestType" : "encryptTo", \
+                                        "requestType" : "encryptTo", \
                                         "recipient" : "" , \
                                         "note" : "" , \
                                         "secretPhrase" : ""
-                }
+                            }
 
         #9
         self.generateToken = {
@@ -305,10 +292,10 @@ class nxtQs(object):
                                         }
 
         self.getAliases = {
-                    "requestType" : "getAliases", \
+                                        "requestType" : "getAliases", \
                                         "timestamp" : "" , \
                                         "account" : ""
-                }
+                                        }
         #56
         self.getAllAssets = {
                                         "requestType" : "getAllAssets"
@@ -336,7 +323,7 @@ class nxtQs(object):
                                         }
 
         self.getAskOrders = {
-                    "requestType" : "getAskOrders", \
+                                        "requestType" : "getAskOrders", \
                                         "asset" : "" , \
                                         "limit" : ""
                 }
@@ -358,7 +345,7 @@ class nxtQs(object):
                                         }
 
         self.getAssetsByIssuer = {
-                    "requestType" : "getAssetsByIssuer", \
+                                        "requestType" : "getAssetsByIssuer", \
                                         "account" : "" , \
                                         "account" : "" , \
                                         "account" : ""
@@ -381,17 +368,17 @@ class nxtQs(object):
                                         }
 
         self.getBidOrders = {
-                    "requestType" : "getBidOrders", \
+                                        "requestType" : "getBidOrders", \
                                         "asset" : "" , \
                                         "limit" : ""
-                }
+                                                }
         self.getBlock= {
                                         "requestType" : "getBlock" , \
                                         "block" : "BLOCKADDRESS"
                                         }
 
         self.getBlockId = {
-                    "requestType" : "getBlockId", \
+                                        "requestType" : "getBlockId", \
                                         "height" : ""
                 }
 
@@ -405,29 +392,29 @@ class nxtQs(object):
 
 
         self.getDGSGood = {
-                    "requestType" : "getDGSGood", \
+                                        "requestType" : "getDGSGood", \
                                         "goods" : ""
                 }
         self.getDGSGoods = {
-                    "requestType" : "getDGSGoods", \
+                                        "requestType" : "getDGSGoods", \
                                         "seller" : "" , \
                                         "firstIndex" : "" , \
                                         "lastIndex" : "" , \
                                         "inStockOnly" : ""
                 }
         self.getDGSPendingPurchases = {
-                    "requestType" : "getDGSPendingPurchases", \
+                                        "requestType" : "getDGSPendingPurchases", \
                                         "seller" : "" , \
                                         "firstIndex" : "" , \
                                         "lastIndex" : ""
                 }
         self.getDGSPurchase = {
-                    "requestType" : "getDGSPurchase", \
+                                        "requestType" : "getDGSPurchase", \
                                         "purchase" : ""
                 }
 
         self.getDGSPurchases = {
-                    "requestType" : "getDGSPurchases", \
+                                        "requestType" : "getDGSPurchases", \
                                         "seller" : "" , \
                                         "buyer" : "" , \
                                         "firstIndex" : "" , \
@@ -504,7 +491,7 @@ class nxtQs(object):
                                         }
 
         self.getUnconfirmedTransactions = {
-                    "requestType" : "getUnconfirmedTransactions", \
+                                        "requestType" : "getUnconfirmedTransactions", \
                                         "account" : "" , \
 
                 }
@@ -690,13 +677,6 @@ class nxtQs(object):
                                         "feeNQT" : "100000000"
                                          }
 
-
-
-
- #############################################################
-
-
-####################################
 
 
 #

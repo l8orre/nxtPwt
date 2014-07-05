@@ -644,8 +644,8 @@
        <rect>
         <x>10</x>
         <y>50</y>
-        <width>351</width>
-        <height>426</height>
+        <width>356</width>
+        <height>506</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -1755,7 +1755,7 @@
       <property name="geometry">
        <rect>
         <x>5</x>
-        <y>40</y>
+        <y>70</y>
         <width>366</width>
         <height>271</height>
        </rect>
@@ -1944,6 +1944,68 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="pb_getState_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>96</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>getState</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_getAccount_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>20</y>
+        <width>91</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Ubuntu</family>
+        <pointsize>8</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>getAccount</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_getTransaction_2">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>20</y>
+        <width>111</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>getTransaction</string>
+      </property>
      </widget>
     </widget>
    </widget>

@@ -107,6 +107,7 @@ class nxtWin7Control(QObject):
         QtCore.QObject.connect(ui.pb_generateToken , SIGNAL("clicked()"), self.generateTokenCB ) #46
 
         QtCore.QObject.connect(ui.pb_getAccount , SIGNAL("clicked()"), self.getAccountCB ) #42
+        QtCore.QObject.connect(ui.pb_getAccount_2 , SIGNAL("clicked()"), self.getAccountCB ) #42
 
         QtCore.QObject.connect(ui.pb_getAccountBlockIds , SIGNAL("clicked()"), self.getAccountBlockIdsCB )
 
@@ -187,12 +188,14 @@ class nxtWin7Control(QObject):
         QtCore.QObject.connect(ui.pb_getPollIds , SIGNAL("clicked()"), self.getPollIdsCB ) #47
 
         QtCore.QObject.connect(ui.pb_getState , SIGNAL("clicked()"), self.getStateCB )
+        QtCore.QObject.connect(ui.pb_getState_2 , SIGNAL("clicked()"), self.getStateCB )
 
         QtCore.QObject.connect(ui.pb_getTime , SIGNAL("clicked()"), self.getTimeCB )
 
         QtCore.QObject.connect(ui.pb_getTrades , SIGNAL("clicked()"), self.getTradesCB ) #43
 
         QtCore.QObject.connect(ui.pb_getTransaction , SIGNAL("clicked()"), self.getTransactionCB )
+        QtCore.QObject.connect(ui.pb_getTransaction_2 , SIGNAL("clicked()"), self.getTransactionCB )
 
         QtCore.QObject.connect(ui.pb_getTransactionBytes , SIGNAL("clicked()"), self.getTransactionBytesCB )
 
