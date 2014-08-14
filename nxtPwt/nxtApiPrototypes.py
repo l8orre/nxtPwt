@@ -22,6 +22,7 @@ THE SOFTWARE.
 
 """
 
+#
 
 
 class nxtQs(object):
@@ -32,20 +33,33 @@ class nxtQs(object):
         #1
         self.broadcastTransaction= {
                                         "requestType" : "broadcastTransaction" , \
+                                        "transactionJSON" : "transactionJSON" ,\
                                         "transactionBytes" : "transactionBytes"
                                         }
+
+        #"priceNQT" : "" , \ buyAlias does not have a price any more ?!?!?!
 
         self.buyAlias = {
                                         "requestType" : "buyAlias" , \
                                         "alias" : "" , \
                                         "aliasName" : "" , \
-                                        "priceNQT" : "" , \
                                         "secretPhrase" : "" , \
                                         "publicKey" : "" , \
                                         "feeNQT" : "" , \
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
-                                        "broadcast" : ""
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
                                         }
 
 
@@ -61,8 +75,20 @@ class nxtQs(object):
                                         "order" : "ORDERID" ,\
                                         "deadline" : "DEADLINE",\
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
                                          }
         #4
         self.cancelBidOrder= {
@@ -71,34 +97,72 @@ class nxtQs(object):
                                         "order" : "ORDERID",\
                                         "deadline" : "DEADLINE" ,\
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
                                          }
         #5
         self.castVote ={                "requestType" : "castVote",\
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "PASSPHRASE"   ,\
                                         "poll" : "enterID" , \
                                         "deadline" : "DEADLINE",\
                                         "vote1" : "enterVote" ,\
                                         "vote2" : "enterVote" ,\
                                         "vote3" : "enterVote" ,\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
                                         }
         #6
         self.createPoll ={              "requestType" : "createPoll", \
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "name" : "name" , \
                                         "description" : "description", \
-                                        "option1" : "TODO:MAKE LIST ",\
+                                        "option1" : "TODO:MAKE LIST1 ",\
+                                        "option2" : "TODO:MAKE LIST2 ",\
+                                        "option3" : "TODO:MAKE LIST3 ",\
                                         "minNumberOfOptions" : "",\
                                         "maxNumberOfOptions" : "",\
                                         "deadline" : "deadline",\
                                         "feeNQT" : "100000000",\
                                         "secretPhrase" : "secretPhrase"   ,\
-                                        "optionsAreBinary" : "true"
+                                        "optionsAreBinary" : "true",\
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
                                          }
         #7
         self.decodeHallmark= {
@@ -117,8 +181,9 @@ class nxtQs(object):
                                         "account" : "" , \
                                         "data" : "" , \
                                         "nonce" : "" , \
-                                        "secretPhrase" : ""
-                }
+                                        "secretPhrase" : "",\
+                                        "decryptedMessageIsText": ""
+                                         }
 
         self.dgsDelisting = {
                                         "requestType" : "dgsDelisting", \
@@ -129,6 +194,17 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
 
                 }
 
@@ -145,7 +221,18 @@ class nxtQs(object):
                                         "feeNQT" : "100000000" , \
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
-                                        "broadcast" : "" ,
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                 }
 
         self.dgsFeedback = {
@@ -160,6 +247,17 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                 }
 
         self.dgsListing = {
@@ -175,6 +273,17 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
 
                 }
         self.dgsPriceChange = {
@@ -203,6 +312,17 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                 }
 
         self.dgsQuantityChange = {
@@ -215,6 +335,17 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                 }
 
         self.dgsRefund = {
@@ -230,13 +361,25 @@ class nxtQs(object):
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" , \
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                         }
         self.encryptTo = {
                                         "requestType" : "encryptTo", \
                                         "recipient" : "" , \
-                                        "note" : "" , \
+                                        "messageToEncrypt": "" ,\
+                                        "messageToEncryptIsText": "" ,\
                                         "secretPhrase" : ""
-                            }
+                                        }
 
         #9
         self.generateToken = {
@@ -270,7 +413,8 @@ class nxtQs(object):
         #14
         self.getAccountId = {
                                         "requestType" : "getAccountId" ,  \
-                                        "secretPhrase" : "secretPhrase"   \
+                                        "secretPhrase" : "secretPhrase",   \
+                                        "publicKey" : "publicKey"
                                         }
         #15
         self.getAccountPublicKey= {
@@ -283,8 +427,23 @@ class nxtQs(object):
                                         "account":       "ACCNUM", \
                                         "timestamp" : "0",\
                                         "type": "",\
-                                        "subtype":""
+                                        "subtype":"" ,\
+                                        "firstIndex" : "" ,\
+                                        "lastIndex":""
                                         }
+
+
+        #16
+        self.getAccountTransactions= {
+                                        "requestType" : "getAccountTransactions" , \
+                                        "account":       "ACCNUM", \
+                                        "timestamp" : "0",\
+                                        "type": "",\
+                                        "subtype":"" ,\
+                                        "firstIndex" : "" ,\
+                                        "lastIndex":""
+                                        }
+
         #17
         self.getAlias = {
                                         "requestType" : "getAlias" , \
@@ -380,7 +539,7 @@ class nxtQs(object):
         self.getBlockId = {
                                         "requestType" : "getBlockId", \
                                         "height" : ""
-                }
+                            }
 
         self.getBlockchainStatus = {
                                         "requestType" : "getBlockchainStatus",
@@ -477,7 +636,7 @@ class nxtQs(object):
         self.getTransaction= {
                                         "requestType" : "getTransaction" , \
                                         "transaction" : "transaction",\
-                                        "hash": "hash"
+                                        "fullHash": "fullHash"
                                         }
         #44
         self.getTransactionBytes= {
@@ -499,26 +658,50 @@ class nxtQs(object):
         self.issueAsset= {
                                         "requestType" : "issueAsset" , \
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "SECRET" ,\
                                         "name" : "ASSETNAME", \
                                         "description" : "DESCRIPTION", \
                                         "quantityQNT" : "QTY" ,\
                                         "deadline" : "DEADLINE",\
                                         "decimals":"0",\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
 
         #47
         self.leaseBalance= {
                                         "requestType" : "leaseBalance" , \
-                                        "referencedTransaction" : "",\
                                         "publicKey":"",\
                                         "secretPhrase" : "0", \
                                         "deadline" : "DEADLINE",\
                                         "feeNQT" : "100000000" ,\
                                         "recipient" : "" ,\
-                                        "period" : "1440"
+                                        "period" : "1440", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
 
         #49
@@ -533,6 +716,7 @@ class nxtQs(object):
         #50
         self.parseTransaction = {
                                         "requestType" : "parseTransaction" ,  \
+                                        "transactionJSON" : "transactionJSON" ,\
                                         "transactionBytes" : ""
                                         }
 
@@ -540,32 +724,61 @@ class nxtQs(object):
         self.placeAskOrder= {
                                         "requestType" : "placeAskOrder" , \
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "SECRET",\
                                         "asset" : "asset",\
                                         "quantityQNT" : "QTY",\
                                         "priceNQT" : "",\
                                         "deadline" : "180" ,\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
         #52
         self.placeBidOrder= {
                                         "requestType" : "placeBidOrder" , \
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "SECRET",\
                                         "asset" : "asset",\
                                         "quantityQNT" : "QTY",\
                                         "priceNQT" : "",\
                                         "deadline" : "180" ,\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
 
-        self.readEncryptedNote = {
+
+
+
+        self.readMessage = {
                                         "requestType" : "readEncryptedNote", \
                                         "secretPhrase" : "" , \
                                         "transaction" : ""
                 }
+
+
         self.rsConvert = {
                                         "requestType" : "rsConvert", \
                                         "account" : ""
@@ -582,41 +795,78 @@ class nxtQs(object):
                                         "feeNQT" : "100000000" , \
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
-                                        "broadcast" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                 }
-        self.sendEncryptedNote = {
-                                        "requestType" : "sendEncryptedNote", \
-                                        "recipient" : "" , \
-                                        "note" : "" , \
-                                        "encryptedNote" : "" , \
-                                        "encryptedNoteNonce" : "" , \
-                                        "secretPhrase" : "" , \
-                                        "publicKey" : "" , \
-                                        "feeNQT" : "100000000" , \
-                                        "deadline" : "" , \
-                                        "referencedTransactionFullHash" : "" , \
-                                        "broadcast" : "" , \
-                }
+        #
+        # self.sendEncryptedNote = {
+        #                                 "requestType" : "sendEncryptedNote", \
+        #                                 "recipient" : "" , \
+        #                                 "note" : "" , \
+        #                                 "encryptedNote" : "" , \
+        #                                 "encryptedNoteNonce" : "" , \
+        #                                 "secretPhrase" : "" , \
+        #                                 "publicKey" : "" , \
+        #                                 "feeNQT" : "100000000" , \
+        #                                 "deadline" : "" , \
+        #                                 "referencedTransactionFullHash" : "" , \
+        #                                 "broadcast" : "" , \
+        #         }
+        #
         #53
         self.sendMessage= {
                                         "requestType" : "sendMessage" ,\
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "SECRET",\
                                         "recipient" : "RECIP_ACCOUNT" ,\
                                         "message" : "HEX_STRING" ,\
                                         "deadline" : "DEADLINE" ,\
-                                        "feeNQT" : "100000000"
+                                        "feeNQT" : "100000000", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
         #54
         self.sendMoney= {               "requestType" : "sendMoney" , \
                                         "publicKey":"",\
-                                        "referencedTransaction" : "",\
                                         "secretPhrase" : "SECRET" ,\
                                         "deadline" : "DEADLINE",\
                                         "feeNQT" : "100000000",\
                                         "amountNQT" : "",\
-                                        "recipient" : "RECIPACCOUNT" ,\
+                                        "recipient" : "RECIPACCOUNT" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          }
 
 
@@ -624,13 +874,25 @@ class nxtQs(object):
         #55
         self.setAccountInfo= {
                                         "requestType" : "setAccountInfo" , \
-                                        "referencedTransaction" : "",\
                                         "publicKey":"",\
                                         "secretPhrase" : "0", \
                                         "deadline" : "DEADLINE",\
                                         "feeNQT" : "100000000" ,\
                                         "name" : "name",\
-                                        "description" : "description"
+                                        "description" : "description", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                          } #"recipient" : "" ,\ ???
 
 
@@ -644,13 +906,26 @@ class nxtQs(object):
                                         "feeNQT" : "100000000" , \
                                         "deadline" : "" , \
                                         "referencedTransactionFullHash" : "" , \
-                                        "broadcast" : ""
+                                        "broadcast" : "", \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
                                         }
         #56
         self.signTransaction = {
                                         "requestType" : "signTransaction" ,  \
                                         "unsignedTransactionBytes" : "unsignedTransactionBytes" ,  \
-
+                                        "unsignedTransactionJSON" : "",\
                                         "secretPhrase" : "PASSPHRASE"
                                         }
         #57
@@ -673,9 +948,21 @@ class nxtQs(object):
                                         "quantityQNT" : "QTY" ,\
                                         "deadline" : "DEADLINE",\
                                         "comment" :"TX comment",\
-                                        "referencedTransaction" : "",\
-                                        "feeNQT" : "100000000"
-                                         }
+                                        "feeNQT" : "100000000" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "" ,\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": "" ,\
+                                        }
 
 
 

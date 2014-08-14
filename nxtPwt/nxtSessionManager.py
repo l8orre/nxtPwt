@@ -32,7 +32,7 @@ from PyQt4.QtCore import   QObject , pyqtSignal, pyqtSlot
 import nxtPwt.nxtUseCases as nxtUseCases
 
 import nxtPwt.nxtUC_Bridge as nxtUC_Bridge
-
+import logging as lg
 
 import nxtPwt.nxtModels as nxtMods
 from nxtPwt.nxtApiSigs import nxtApi
@@ -99,9 +99,26 @@ connection management.
         
         runAs = args['runAs']
 
-        self.nxtApi = nxtApi(self) # make the apiSigs instance here!
+
+        self.apiLoggerNXT = lg.getLogger('apiLogger')
+        self.apiLoggerNXT.setLevel(lg.INFO) # INFO DEBUG
+        aLhandler = lg.StreamHandler()
+        aLhandler.setLevel(lg.INFO)      # INFO DEBUG
+        after = lg.Formatter('\n%(asctime)s - %(message)s')
+        aLhandler.setFormatter(after)
+        self.apiLoggerNXT.addHandler(aLhandler)
+
+
+        self.nxtApi = nxtApi(self, self.apiLoggerNXT) # make the apiSigs instance here!
+
         self.activeNRS = nxtMods.NRSconn(self)
-        self.nxtApi.initSignals() # leapFrog init: account and NRSconn must be made before connecting their Sigs on nxtApi
+
+        self.nxtApi.initSignals(self.activeNRS) # leapFrog init: account and NRSconn must be made before connecting their Sigs on nxtApi
+
+        #self.nxtApi.initSignals() # leapFrog init: account and NRSconn must be made before connecting their Sigs on nxtApi
+
+
+
 
         self.logShort = True
         self.logLong = False
@@ -117,7 +134,7 @@ connection management.
             self.uc_bridge = nxtUC_Bridge.UC_Bridge1(self,host  , port )
             
         elif runAs == 'W':
-            self.uc_bridge = nxtUC_Bridge.UC_Bridge1(self, )
+            #self.uc_bridge = nxtUC_Bridge.UC_Bridge1(self, )
             
             self.uc1_pollNRS = nxtUseCases.UC1_pollNRS(self,  ) #
             self.uc2_accHndlr = nxtUseCases.UC2_accountHandler(self,   ) #
