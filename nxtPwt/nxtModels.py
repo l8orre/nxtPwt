@@ -715,7 +715,8 @@ class NRSconn(nxtMeta):
             self.comp = {}
             self.comp['protocoll'] = 'http://' #
             self.comp['server'] = 'localhost:'
-            self.comp['port'] =  '6876'
+            #self.comp['port'] =  '6876'
+            self.comp['port'] =  '7876'
             self.comp['serverAddr'] = self.comp['protocoll'] + self.comp['server'] + self.comp['port']
             self.comp['url'] = self.comp['serverAddr'] + "/nxt?"
             #
@@ -1068,7 +1069,7 @@ nextLessee:2865886802744497404
         #print(str(meta))
 
         try:
-            self.data['account'] = reply['accountId']
+            self.data['account'] = reply['account']
             self.poll1Single(meta)
         except Exception as inst:
                 print(str(inst))

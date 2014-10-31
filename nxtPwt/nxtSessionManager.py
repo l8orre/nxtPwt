@@ -131,6 +131,8 @@ connection management.
         if runAs == 'B':
             host = 'localhost'
             port = '6876'
+            #port = '7876'
+
             self.uc_bridge = nxtUC_Bridge.UC_Bridge1(self,host  , port )
             
         elif runAs == 'W':
