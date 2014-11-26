@@ -1,0 +1,22 @@
+
+
+Added apis 
+getAccountBlockCount 
+
+
+
+
+ getAccountAssets 
+
+
+ getAssetAccountCount 
+
+---
+parms
+ includeCounts parameter to the getAssets API
+
+
+
+ hideDelisted parameter to the getDGSGoods API
+
+

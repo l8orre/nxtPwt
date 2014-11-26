@@ -29,14 +29,20 @@ from PyQt4.QtCore import   QObject , pyqtSignal, pyqtSlot, SIGNAL
 from copy import copy
 from PyQt4 import   QtGui
 from PyQt4 import Qt,  QtCore
+import os
 
-
-import logging as lg
+#import logging as lg
 
 
 class nxtApi(Qt.QObject):
     """ class to check state and emit signals when changes have occurred-
             currently implementing ..
+
+enter new calls:
+1 here for documentation
+2 add signal here:  broadcastTransaction_Sig =  pyqtSignal(dict,dict)  #1
+3 add decorator here
+4 add prototype
 
 broadcastTransaction
 buyAlias
@@ -59,6 +65,20 @@ dgsRefund
 encryptTo
 generateToken
 getAccount
+
+getAccountAssets *NEW 1
+getAccountAssets   javadoc     
+account:
+asset:
+height:
+getAccountAssetCount *NEW 2
+getAccountAssetCount   javadoc     
+account:
+height:
+getAccountBlockCount  *NEW 3
+getAccountBlockCount   javadoc     
+account:
+
 getAccountBlockIds
 getAccountCurrentAskOrderIds
 getAccountCurrentBidOrderIds
@@ -67,6 +87,11 @@ getAccountPublicKey
 getAccountTransactionIds
 getAlias
 getAliases
+
+getAliasCount,  *NEW 4
+getAliasCount   javadoc     
+account:
+
 getAllAssets
 getAllOpenOrders
 getAllTrades
@@ -76,6 +101,19 @@ getAskOrders
 getAsset
 getAssetIds
 getAssets
+
+
+getAssets   javadoc      NEW
+assets:
+assets:
+assets:
+includeCounts:
+
+
+getAssetAccountCount  *NEW 5
+getAssetAccountCount   javadoc     
+asset:
+height:
 getAssetsByIssuer
 getBalance
 getBidOrder
@@ -86,10 +124,49 @@ getBlockId
 getBlockchainStatus
 getConstants
 getDGSGood
+
+
 getDGSGoods
+getDGSGoods   javadoc    NEW 
+seller:
+firstIndex:
+lastIndex:
+inStockOnly:
+hideDelisted:
+includeCounts:
+
+
+
+getDGSGoodsCount, *NEW 6
+getDGSGoodsCount   javadoc     
+seller:
+inStockOnly:
+getDGSGoodsPurchases *NEW 7
+getDGSGoodsPurchases   javadoc     
+goods:
+firstIndex:
+lastIndex:
+withPublicFeedbacksOnly:
+getDGSGoodsPurchaseCount, *NEW 8
+getDGSGoodsPurchaseCount   javadoc     
+goods:
+withPublicFeedbacksOnly:
 getDGSPendingPurchases
 getDGSPurchase
+
+getDGSPurchaseCount  *NEW 9
+getDGSPurchaseCount   javadoc     
+seller:
+buyer:
 getDGSPurchases
+
+getDGSTags *NEW 10
+getDGSTags   javadoc     
+inStockOnly:
+firstIndex:
+lastIndex:
+
+getECBlock
 getForging
 getGuaranteedBalance
 getMyInfo
@@ -113,6 +190,24 @@ placeAskOrder
 placeBidOrder
 readEncryptedNote
 rsConvert
+
+searchAssets  *NEW 11
+searchAssets   javadoc     
+query:
+firstIndex:
+lastIndex:
+includeCounts:
+
+searchDGSGoods *NEW 12
+searchDGSGoods   javadoc     
+query:
+tag:
+seller:
+firstIndex:
+lastIndex:
+inStockOnly:
+hideDelisted:
+includeCounts:
 sellAlias
 sendEncryptedNote
 sendMessage
@@ -175,6 +270,12 @@ transferAsset
 
     getAccount_Sig =  pyqtSignal(dict,dict)
 
+    getAccountAssets_Sig =  pyqtSignal(dict,dict)  #20 *NEW
+
+    getAccountAssetCount_Sig =  pyqtSignal(dict,dict)  #20 # DEBUG API!!! *NEW
+
+    getAccountBlockCount =  pyqtSignal(dict,dict) #*NEW
+
     getAccountBlockIds_Sig =  pyqtSignal(dict,dict  )
 
     getAccountBlocks_Sig =  pyqtSignal(dict,dict  ) # nxt130
@@ -201,6 +302,8 @@ transferAsset
 
     getAliases_Sig  =  pyqtSignal(dict,dict)
 
+    getAliasCount_Sig  =  pyqtSignal(dict,dict) # *NEW
+
     getAllAssets_Sig =  pyqtSignal(dict,dict)  # 30
 
     getAllOpenAskOrders_Sig =  pyqtSignal(dict,dict)
@@ -224,6 +327,8 @@ transferAsset
     getAssetTransfers_Sig =  pyqtSignal(dict,dict)
 
     getAssets_Sig  =  pyqtSignal(dict,dict)
+
+    getAssetAccountCount_Sig  =  pyqtSignal(dict,dict)#  *NEW
 
     getAssetsByIssuer_Sig  =  pyqtSignal(dict,dict)
 
@@ -249,11 +354,21 @@ transferAsset
 
     getDGSGoods_Sig =  pyqtSignal(dict,dict)
 
+    getDGSGoodsCount_Sig =  pyqtSignal(dict,dict) # NEW
+
+    getDGSGoodsPurchases_Sig =  pyqtSignal(dict,dict) # NEW
+
+    getDGSGoodsPurchaseCount_Sig =  pyqtSignal(dict,dict) # NEW
+
     getDGSPendingPurchases_Sig =  pyqtSignal(dict,dict) # 50
 
     getDGSPurchase_Sig =  pyqtSignal(dict,dict)
 
+    getDGSPurchaseCount_Sig =  pyqtSignal(dict,dict)#  *NEW
+
     getDGSPurchases_Sig =  pyqtSignal(dict,dict)
+
+    getDGSTags_Sig =  pyqtSignal(dict,dict) # *NEW
 
     getECBlock_Sig =  pyqtSignal(dict,dict)
 
@@ -308,6 +423,10 @@ transferAsset
     readMessage_Sig =  pyqtSignal(dict,dict)
 
     rsConvert_Sig =  pyqtSignal(dict,dict)
+
+    searchAssets_Sig =  pyqtSignal(dict,dict) # NEW
+
+    searchDGSGoods_Sig =  pyqtSignal(dict,dict) # NEW
 
     scan_Sig =  pyqtSignal(dict,dict)
 
@@ -695,6 +814,52 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccount_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+
+
+
+    @pyqtSlot() #
+    def getAccountAssets_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountAssets_Sig)
+        self.qPool.start(self.replyFetcher)
+
+    @pyqtSlot() #
+    def getAccountAssetCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountAssetCount_Sig)
+        self.qPool.start(self.replyFetcher)
+    @pyqtSlot() #
+    def getAccountBlockCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountBlockCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+
+
+
+
+
     @pyqtSlot() # 2
     def getAccountBlockIds_Slot(self,apiReq, meta = {}):
         """- """
@@ -856,6 +1021,21 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAliases_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot() #
+    def getAliasCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAliasCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
     @pyqtSlot() # 60
     def getAllAssets_Slot(self,apiReq, meta = {}):
         """ - """
@@ -1010,6 +1190,22 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAssets_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def getAssetAccountCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAssetAccountCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+
     @pyqtSlot() # 31
     def getAssetsByIssuer_Slot(self,apiReq, meta = {}):
         """-"""
@@ -1156,6 +1352,43 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSGoods_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def getDGSGoodsCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSGoodsCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+    @pyqtSlot()
+    def getDGSGoodsPurchases_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSGoodsPurchases_Sig)
+        self.qPool.start(self.replyFetcher)
+
+    @pyqtSlot()
+    def getDGSGoodsPurchaseCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSGoodsPurchaseCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
     @pyqtSlot() # 31
     def getDGSPendingPurchases_Slot(self,apiReq, meta = {}):
         """-"""
@@ -1180,6 +1413,18 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSPurchase_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def getDGSPurchaseCount_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSPurchaseCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
     @pyqtSlot() # 31
     def getDGSPurchases_Slot(self,apiReq, meta = {}):
         """-"""
@@ -1192,6 +1437,17 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSPurchases_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def getDGSTags_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSTags_Sig)
+        self.qPool.start(self.replyFetcher)
 
     @pyqtSlot() # 54
     def getECBlock_Slot(self,apiReq, meta = {}):
@@ -1305,7 +1561,6 @@ transferAsset
     @pyqtSlot() # 9
     def getState_Slot(self,  apiReq, meta = {}):
         """ - """
-        ##################################
         self.req.params=apiReq # same obj, only replace params
         preppedReq = self.req.prepare()
         self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
@@ -1485,8 +1740,6 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.placeBidOrder_Sig)
         self.qPool.start(self.replyFetcher)
 
-
-
     @pyqtSlot() # 34
     def popOff_Slot(self,apiReq, meta = {}):
         """ - """
@@ -1524,7 +1777,29 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.rsConvert_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def searchAssets_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.searchAssets_Sig)
+        self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot() # 42 ################################### NEW
+    def searchDGSGoods_Slot(self, apiReq , meta = {}):
+        """ - """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.searchDGSGoods_Sig)
+        self.qPool.start(self.replyFetcher)
 
     @pyqtSlot() # 34
     def scan_Slot(self,apiReq, meta = {}):

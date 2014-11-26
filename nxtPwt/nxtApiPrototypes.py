@@ -37,7 +37,6 @@ class nxtQs(object):
                                         "transactionBytes" : "transactionBytes"
                                         }
 
-        #"priceNQT" : "" , \ buyAlias does not have a price any more ?!?!?!
 
         self.buyAlias = {
                                         "requestType" : "buyAlias" , \
@@ -405,6 +404,50 @@ class nxtQs(object):
                                         "requestType" : "getAccount" , \
                                         "account" : "account"
                                         }
+
+
+
+###
+
+        self.getAccountAssets = {
+                                        "requestType" : "getAccountAssets", \
+                                        "account" : "" , \
+                                        "asset": "" ,\
+                                        "height": ""
+                                        }
+        self.getAccountAssetCount = {
+                                        "requestType" : "getAccountAssetCount", \
+                                        "account" : "" , \
+                                        "height": "" ,\
+                                        }
+        self.getAccountBlockCount = {
+                                        "requestType" : "getAccountBlockCount", \
+                                        "account" : "" , \
+                                        }
+#
+#  *NEW 1
+# getAccountAssets   javadoc     
+# :
+# :
+# :
+#
+#
+#  *NEW 2
+# getAccountAssetCount   javadoc     
+# :
+# :
+#
+#
+#   *NEW 3
+# getAccountBlockCount   javadoc     
+# :
+
+
+
+
+
+
+
         #11
         self.getAccountBlockIds= {
                                         "requestType" : "getAccountBlockIds" , \
@@ -521,6 +564,20 @@ class nxtQs(object):
                                         "firstIndex" : "",\
                                         "lastIndex" : ""
                                         }
+
+
+        self.getAliasCount = {
+                                        "requestType" : "getAliasCount" , \
+                                        "account" : ""
+                                        }
+#
+# ,  *NEW 4
+# getAliasCount   javadoc     
+# :
+
+
+
+
         #56
         self.getAllAssets = {
                                         "requestType" : "getAllAssets",\
@@ -608,8 +665,34 @@ class nxtQs(object):
                                         "requestType" : "getAssets" ,  \
                                         "assets" : "assets",\
                                         "assets" : "assets",\
-                                        "assets" : "etc"
+                                        "assets" : "etc",\
+                                        "includeCounts":""
                                         }
+
+#
+#
+# getAssets   javadoc      NEW
+# assets:
+# assets:
+# assets:
+# includeCounts:
+
+
+
+
+
+
+        #57
+        self.getAssetAccountCount = {
+                                        "requestType" : "getAssetAccountCount" ,  \
+                                        "asset" : "",\
+                                        "height" : "",\
+
+                                        }
+#   *NEW 5
+# getAssetAccountCount   javadoc     
+# asset:
+# height:
 
         self.getAssetsByIssuer = {
                                         "requestType" : "getAssetsByIssuer", \
@@ -680,13 +763,67 @@ class nxtQs(object):
                                         "requestType" : "getDGSGood", \
                                         "goods" : ""
                 }
+
         self.getDGSGoods = {
                                         "requestType" : "getDGSGoods", \
                                         "seller" : "" , \
                                         "firstIndex" : "" , \
                                         "lastIndex" : "" , \
-                                        "inStockOnly" : ""
+                                        "inStockOnly" : "",\
+                                        "hideDelisted" : "" , \
+                                        "includeCounts" : ""
                 }
+
+
+
+
+###
+        self.getDGSGoodsCount = {
+                                        "requestType" : "getDGSGoodsCount", \
+                                        "seller" : "" , \
+
+                                        "inStockOnly" : "",\
+
+                }
+
+        self.getDGSGoodsPurchases = {
+                                        "requestType" : "getDGSGoodsPurchases", \
+                                        "goods" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "withPublicFeedbacksOnly" : "",\
+
+                }
+
+        self.getDGSGoodsPurchaseCount = {
+                                        "requestType" : "getDGSGoodsPurchaseCount", \
+                                        "goods" : "" , \
+                                        "withPublicFeedbacksOnly" : "" , \
+
+                }
+
+#
+# , *NEW 6
+# getDGSGoodsCount   javadoc     
+# seller:
+# inStockOnly:
+#
+#
+#  *NEW 7
+# getDGSGoodsPurchases   javadoc     
+# :
+# firstIndex:
+# lastIndex:
+# :
+
+#
+# , *NEW 8
+# getDGSGoodsPurchaseCount   javadoc     
+# :
+# :
+
+
+
         self.getDGSPendingPurchases = {
                                         "requestType" : "getDGSPendingPurchases", \
                                         "seller" : "" , \
@@ -698,6 +835,22 @@ class nxtQs(object):
                                         "purchase" : ""
                 }
 
+
+#
+#   *NEW 9
+# getDGSPurchaseCount   javadoc     
+# seller:
+# buyer:
+
+        self.getDGSPurchaseCount = {
+                                        "requestType" : "getDGSPurchaseCount", \
+                                        "seller" : "" , \
+                                        "buyer" : "" , \
+                }
+
+
+
+
         self.getDGSPurchases = {
                                         "requestType" : "getDGSPurchases", \
                                         "seller" : "" , \
@@ -706,6 +859,23 @@ class nxtQs(object):
                                         "lastIndex" : "" , \
                                         "completed" : ""
                 }
+
+
+
+        self.getDGSTags = {
+                                        "requestType" : "getDGSTags", \
+                                        "inStockOnly" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                }
+#
+#  *NEW 10
+# getDGSTags   javadoc     
+# :
+# :
+# :
+
+
 
 
         self.getECBlock = {
@@ -746,12 +916,6 @@ class nxtQs(object):
                                         "active" : "",\
                                         "state" : ""
                                         }
-
-
-        # HERE CHANGE
-
-
-
 
 
         #38
@@ -947,12 +1111,34 @@ class nxtQs(object):
                 }
 
 
+
+
+        self.searchAssets = {
+                                        "requestType" : "searchAssets", \
+                                        "query":"", \
+                                        "firstIndex":"", \
+                                        "lastIndex" : "" , \
+                                        "includeCounts" : ""
+                } # NEW 134
+
+
+        self.searchDGSGoods = {
+                                        "requestType" : "searchDGSGoods", \
+                                        "query":"", \
+                                        "firstIndex":"", \
+                                        "lastIndex" : "" , \
+                                        "includeCounts" : "",\
+                                        "seller" : "", \
+                                        "inStockOnly" : "" , \
+                                        "hideDelisted" : ""
+                            } # NEW 134
+
         # DEBUG API !!!
         self.scan = {
                                         "requestType" : "scan", \
                                         "numBlocks" : "" , \
                                         "height" : ""
-                }
+                        }
 
 
         self.sellAlias = {
@@ -1027,8 +1213,6 @@ class nxtQs(object):
                                          }
 
 
-
-        #55
         self.setAccountInfo= {
                                         "requestType" : "setAccountInfo" , \
                                         "publicKey":"",\

@@ -1,0 +1,38 @@
+
+
+getAccountBlockCount 
+
+ getAccountAssets 
+
+ getAssetAccountCount 
+
+ searchAssets API
+
+ searchDGSGoods API
+
+ getDGSGoodsPurchases API
+
+
+ getDGSTags
+
+getAccountAssetCount, 
+getAliasCount, 
+getDGSGoodsCount,
+getDGSGoodsPurchaseCount, 
+getDGSPurchaseCount APIs,
+
+
+
+
+parms
+
+getDGSPurchases API now takes an optional withPublicFeedbacksOnly parameter.
+If true, results are filtered to include only purchases with public feedbacks.
+
+
+ includeCounts parameter to the getAssets API
+
+
+ hideDelisted parameter to the getDGSGoods API
+
+

@@ -1,0 +1,37 @@
+
+
+
+getAccountAssets *NEW
+
+getAccountAssetCount *NEW 
+
+getAccountBlockCount  *NEW
+
+getAliasCount,  *NEW
+
+getAssetAccountCount  *NEW
+
+getDGSGoodsCount, *NEW
+
+getDGSGoodsPurchases *NEW
+
+getDGSGoodsPurchaseCount, *NEW 
+
+getDGSPurchaseCount   *NEW
+
+getDGSTags *NEW
+
+searchAssets  *NEW
+
+searchDGSGoods *NEW
+
+
+parms
+
+getDGSPurchases API ok now takes an optional withPublicFeedbacksOnly parameter.
+ 
+ includeCounts parameter to the getAssets API
+
+ hideDelisted parameter to the getDGSGoods API
+
+
