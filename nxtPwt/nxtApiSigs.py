@@ -44,16 +44,41 @@ enter new calls:
 3 add decorator here
 4 add prototype
 
+# these calls updated up tp 1.4.12
+
+
+
+    addPeer_Sig =  pyqtSignal(dict,dict)
+
+    blacklistPeer_Sig =  pyqtSignal(dict,dict)
+
 broadcastTransaction
 buyAlias
 calculateFullHash
 cancelAskOrder
 cancelBidOrder
+    cancelDeleteCurrency_Sig =  pyqtSignal(dict,dict)
+
 castVote
 createPoll
+    currencyBuy_Sig =  pyqtSignal(dict,dict)
+
+    currencyMint_Sig =  pyqtSignal(dict,dict)
+
+    currencyReserveClaim_Sig =  pyqtSignal(dict,dict)
+
+    currencyReserveIncrease_Sig =  pyqtSignal(dict,dict)
+
+    currencySell_Sig =  pyqtSignal(dict,dict)
+
 decodeHallmark
 decodeToken
+
+    deleteAlias_Sig =  pyqtSignal(dict,dict)
+
 decryptFrom
+    deleteCurrency_Sig =  pyqtSignal(dict,dict)
+
 dgsDelisting
 dgsDelivery
 dgsFeedback
@@ -62,24 +87,26 @@ dgsPriceChange
 dgsPurchase
 dgsQuantityChange
 dgsRefund
+    dividendPayment_Sig =  pyqtSignal(dict,dict)
+
 encryptTo
 generateToken
 getAccount
 
 getAccountAssets *NEW 1
-getAccountAssets   javadoc     
-account:
-asset:
-height:
+
+
 getAccountAssetCount *NEW 2
-getAccountAssetCount   javadoc     
-account:
-height:
+
+
 getAccountBlockCount  *NEW 3
-getAccountBlockCount   javadoc     
-account:
 
 getAccountBlockIds
+    getAccountCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getAccountCurrencyCount_Sig =  pyqtSignal(dict,dict)
+
+    getAccountExchangeRequests_Sig =  pyqtSignal(dict,dict)
 getAccountCurrentAskOrderIds
 getAccountCurrentBidOrderIds
 getAccountId
@@ -89,10 +116,13 @@ getAlias
 getAliases
 
 getAliasCount,  *NEW 4
-getAliasCount   javadoc     
-account:
+
 
 getAllAssets
+    getAllCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getAllExchanges_Sig =  pyqtSignal(dict,dict)
+
 getAllOpenOrders
 getAllTrades
 getAskOrder
@@ -103,17 +133,8 @@ getAssetIds
 getAssets
 
 
-getAssets   javadoc      NEW
-assets:
-assets:
-assets:
-includeCounts:
+getAssetAccountCount
 
-
-getAssetAccountCount  *NEW 5
-getAssetAccountCount   javadoc     
-asset:
-height:
 getAssetsByIssuer
 getBalance
 getBidOrder
@@ -122,59 +143,66 @@ getBidOrders
 getBlock
 getBlockId
 getBlockchainStatus
+    getBuyOffers_Sig
+
 getConstants
+
+    getCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getCurrenciesByIssuer_Sig =  pyqtSignal(dict,dict)
+
+    getCurrency_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyAccountCount_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyAccounts_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyFounders_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyIds_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyTransfers_Sig =  pyqtSignal(dict,dict)
+
 getDGSGood
 
 
 getDGSGoods
-getDGSGoods   javadoc    NEW 
-seller:
-firstIndex:
-lastIndex:
-inStockOnly:
-hideDelisted:
-includeCounts:
 
 
+getDGSGoodsCount,
 
-getDGSGoodsCount, *NEW 6
-getDGSGoodsCount   javadoc     
-seller:
-inStockOnly:
-getDGSGoodsPurchases *NEW 7
-getDGSGoodsPurchases   javadoc     
-goods:
-firstIndex:
-lastIndex:
-withPublicFeedbacksOnly:
-getDGSGoodsPurchaseCount, *NEW 8
-getDGSGoodsPurchaseCount   javadoc     
-goods:
-withPublicFeedbacksOnly:
-getDGSPendingPurchases
-getDGSPurchase
+getDGSGoodsPurchase
 
-getDGSPurchaseCount  *NEW 9
-getDGSPurchaseCount   javadoc     
-seller:
-buyer:
-getDGSPurchases
+getDGSGoodsPurchaseCount,
 
-getDGSTags *NEW 10
-getDGSTags   javadoc     
-inStockOnly:
-firstIndex:
-lastIndex:
+getDGSPurchaseCount
+
+getDGSTags
+
+
+    getDGSTagCount_Sig =  pyqtSignal(dict,dict)
 
 getECBlock
+    getExchanges_Sig =  pyqtSignal(dict,dict)
+
+    getExchangesByExchangeRequest_Sig =  pyqtSignal(dict,dict)
+
+    getExchangesByOffer_Sig =  pyqtSignal(dict,dict)
+
 getForging
 getGuaranteedBalance
+    getMintingTarget_Sig =  pyqtSignal(dict,dict)
+
 getMyInfo
 getNextBlockGenerators
 getPeer
 getPeers
+    getOffer_Sig =  pyqtSignal(dict,dict)
+
 getPoll
 getPollIds
+    getSellOffers_Sig =  pyqtSignal(dict,dict)
+
 getState
 getTime
 getTrades
@@ -183,32 +211,25 @@ getTransactionBytes
 getUnconfirmedTransactionIds
 getUnconfirmedTransactions
 issueAsset
+    issueCurrency_Sig =  pyqtSignal(dict,dict)
+
 leaseBalance
 markHost
 parseTransaction
 placeAskOrder
 placeBidOrder
+    publishExchangeOffer_Sig =  pyqtSignal(dict,dict)
+
 readEncryptedNote
 rsConvert
 
-searchAssets  *NEW 11
-searchAssets   javadoc     
-query:
-firstIndex:
-lastIndex:
-includeCounts:
+searchAssets
 
-searchDGSGoods *NEW 12
-searchDGSGoods   javadoc     
-query:
-tag:
-seller:
-firstIndex:
-lastIndex:
-inStockOnly:
-hideDelisted:
-includeCounts:
-sellAlias
+
+    searchCurrencies_Sig =  pyqtSignal(dict,dict)
+
+searchDGSGoods
+ sellAlias
 sendEncryptedNote
 sendMessage
 sendMoney
@@ -219,12 +240,94 @@ startForging
 stopForging
 transferAsset
 
+    transferCurrency_Sig =  pyqtSignal(dict,dict)
+
             catchAll <-------
             """
 
     # these are the receiver slots from nxtBroker
 
-    broadcastTransaction_Sig =  pyqtSignal(dict,dict)  #1
+
+
+    addPeer_Sig =  pyqtSignal(dict,dict)
+
+    blacklistPeer_Sig =  pyqtSignal(dict,dict)
+
+    deleteAlias_Sig =  pyqtSignal(dict,dict)
+
+    dividendPayment_Sig =  pyqtSignal(dict,dict)
+
+    getDGSTagCount_Sig =  pyqtSignal(dict,dict)
+
+    cancelDeleteCurrency_Sig =  pyqtSignal(dict,dict)
+
+    currencyBuy_Sig =  pyqtSignal(dict,dict)
+
+    currencyMint_Sig =  pyqtSignal(dict,dict)
+
+    currencyReserveClaim_Sig =  pyqtSignal(dict,dict)
+
+    currencyReserveIncrease_Sig =  pyqtSignal(dict,dict)
+
+    currencySell_Sig =  pyqtSignal(dict,dict)
+
+    deleteCurrency_Sig =  pyqtSignal(dict,dict)
+
+    getAccountCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getAccountCurrencyCount_Sig =  pyqtSignal(dict,dict)
+
+    getAccountExchangeRequests_Sig =  pyqtSignal(dict,dict)
+
+    getAllCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getAllExchanges_Sig =  pyqtSignal(dict,dict)
+
+    getBuyOffers_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    getCurrenciesByIssuer_Sig =  pyqtSignal(dict,dict)
+
+    getCurrency_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyAccountCount_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyAccounts_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyFounders_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyIds_Sig =  pyqtSignal(dict,dict)
+
+    getCurrencyTransfers_Sig =  pyqtSignal(dict,dict)
+
+    getExchanges_Sig =  pyqtSignal(dict,dict)
+
+    getExchangesByExchangeRequest_Sig =  pyqtSignal(dict,dict)
+
+    getExchangesByOffer_Sig =  pyqtSignal(dict,dict)
+
+    getMintingTarget_Sig =  pyqtSignal(dict,dict)
+
+    getOffer_Sig =  pyqtSignal(dict,dict)
+
+    getSellOffers_Sig =  pyqtSignal(dict,dict)
+
+    issueCurrency_Sig =  pyqtSignal(dict,dict)
+
+    publishExchangeOffer_Sig =  pyqtSignal(dict,dict)
+
+    searchCurrencies_Sig =  pyqtSignal(dict,dict)
+
+    transferCurrency_Sig =  pyqtSignal(dict,dict)
+
+    deleteAlias_Sig =  pyqtSignal(dict,dict)
+
+    dividendPayment_Sig =  pyqtSignal(dict,dict)
+
+    getDGSTagCount_Sig =  pyqtSignal(dict,dict)
+
+    broadcastTransaction_Sig =  pyqtSignal(dict,dict)
 
     buyAlias_Sig =  pyqtSignal(dict,dict)
 
@@ -532,7 +635,55 @@ transferAsset
     # regular api calls
         #
 
-    @pyqtSlot() # 24
+
+#
+#
+# ################
+#
+#     @pyqtSlot()
+#     def broadcastTransaction_Slot(self,apiReq, meta = {}):
+#         """- """
+#         self.req.params=apiReq # same obj, only replace params
+#         preppedReq = self.req.prepare()
+#         self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+#         meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+#         replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+#         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+#         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.broadcastTransaction_Sig)
+#         self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def addPeer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.addPeer_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def blacklistPeer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.blacklistPeer_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+
+    @pyqtSlot()
     def broadcastTransaction_Slot(self,apiReq, meta = {}):
         """- """
         self.req.params=apiReq # same obj, only replace params
@@ -592,6 +743,19 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.cancelBidOrder_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def cancelDeleteCurrency_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.cancelDeleteCurrency_Sig)
+        self.qPool.start(self.replyFetcher)
+
     @pyqtSlot() # 49
     def castVote_Slot(self,apiReq, meta = {}):
         """ - """
@@ -630,6 +794,75 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.createPoll_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def currencyBuy_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.currencyBuy_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def currencyMint_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.currencyMint_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def currencyReserveClaim_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.currencyReserveClaim_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def currencyReserveIncrease_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.currencyReserveIncrease_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def currencySell_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.currencySell_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
     @pyqtSlot() # 15
     def decodeHallmark_Slot(self,apiReq, meta = {}):
         """ -"""
@@ -653,6 +886,35 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.decodeToken_Sig)
         self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def deleteAlias_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.deleteAlias_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def deleteCurrency_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.deleteCurrency_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
 
     @pyqtSlot() # 31
     def decryptFrom_Slot(self,apiReq, meta = {}):
@@ -762,6 +1024,18 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.dgsRefund_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def dividendPayment_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.dividendPayment_Sig)
+        self.qPool.start(self.replyFetcher)
+
     @pyqtSlot() # 31
     def encryptTo_Slot(self,apiReq, meta = {}):
         """-"""
@@ -813,10 +1087,6 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccount_Sig)
         self.qPool.start(self.replyFetcher)
-
-
-
-
 
     @pyqtSlot() #
     def getAccountAssets_Slot(self, apiReq , meta = {}):
@@ -883,6 +1153,47 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountBlocks_Sig)
         self.qPool.start(self.replyFetcher)
+
+    @pyqtSlot()
+    def getAccountCurrencies_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountCurrencies_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def getAccountCurrencyCount_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountCurrencyCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getAccountExchangeRequests_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAccountExchangeRequests_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
 
     @pyqtSlot() # 40
     def getAccountCurrentAskOrderIds_Slot(self,apiReq, meta = {}):
@@ -1007,6 +1318,33 @@ transferAsset
         replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAlias_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def getAllCurrencies_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAllCurrencies_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getAllExchanges_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getAllExchanges_Sig)
         self.qPool.start(self.replyFetcher)
 
     @pyqtSlot() # 31
@@ -1316,6 +1654,20 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getBlockchainStatus_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def getBuyOffers_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getBuyOffers_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
     @pyqtSlot() # 7
     def getConstants_Slot(self,apiReq, meta = {}):
         """ - """
@@ -1327,6 +1679,118 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getConstants_Sig)
         self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def getCurrencies_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencies_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrenciesByIssuer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrenciesByIssuer_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrency_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrency_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrencyAccountCount_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencyAccountCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrencyAccounts_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencyAccounts_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrencyFounders_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencyFounders_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrencyIds_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencyIds_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getCurrencyTransfers_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getCurrencyTransfers_Sig)
+        self.qPool.start(self.replyFetcher)
+
 
     @pyqtSlot() # 31
     def getDGSGood_Slot(self,apiReq, meta = {}):
@@ -1438,6 +1902,19 @@ transferAsset
         self.qPool.start(self.replyFetcher)
 
     @pyqtSlot()
+    def getDGSTagCount_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSTagCount_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
     def getDGSTags_Slot(self, apiReq , meta = {}):
         """ - """
         self.req.params=apiReq # same obj, only replace params
@@ -1448,6 +1925,8 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getDGSTags_Sig)
         self.qPool.start(self.replyFetcher)
+
+
 
     @pyqtSlot() # 54
     def getECBlock_Slot(self,apiReq, meta = {}):
@@ -1460,6 +1939,50 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getECBlock_Sig)
         self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getExchanges_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getExchanges_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getExchangesByExchangeRequest_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getExchangesByExchangeRequest_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getExchangesByOffer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getExchangesByOffer_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
 
 
     @pyqtSlot() # 54
@@ -1486,6 +2009,20 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getGuaranteedBalance_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def getMintingTarget_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getMintingTarget_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
     @pyqtSlot() # 8
     def getMyInfo_Slot(self,apiReq, meta = {}):
         """- """
@@ -1509,6 +2046,20 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getNextBlockGenerators_Sig)
         self.qPool.start(self.replyFetcher)
+
+
+    @pyqtSlot()
+    def getOffer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getOffer_Sig)
+        self.qPool.start(self.replyFetcher)
+
 
     @pyqtSlot() # 11
     def getPeer_Slot(self,apiReq, meta = {}):
@@ -1557,6 +2108,21 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getPollIds_Sig)
         self.qPool.start(self.replyFetcher)
+
+
+
+    @pyqtSlot()
+    def getSellOffers_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getSellOffers_Sig)
+        self.qPool.start(self.replyFetcher)
+
 
     @pyqtSlot() # 9
     def getState_Slot(self,  apiReq, meta = {}):
@@ -1667,6 +2233,20 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.issueAsset_Sig)
         self.qPool.start(self.replyFetcher)
 
+
+    @pyqtSlot()
+    def issueCurrency_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.issueCurrency_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
     @pyqtSlot() # 57
     def leaseBalance_Slot(self,apiReq, meta = {}):
         """ - """
@@ -1753,6 +2333,20 @@ transferAsset
         self.qPool.start(self.replyFetcher)
 
 
+
+    @pyqtSlot()
+    def publishExchangeOffer_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.publishExchangeOffer_Sig)
+        self.qPool.start(self.replyFetcher)
+
+
     @pyqtSlot() # 31
     def readMessage_Slot(self,apiReq, meta = {}):
         """-"""
@@ -1789,6 +2383,18 @@ transferAsset
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.searchAssets_Sig)
         self.qPool.start(self.replyFetcher)
 
+    @pyqtSlot()
+    def searchCurrencies_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.searchCurrencies_Sig)
+        self.qPool.start(self.replyFetcher)
+
     @pyqtSlot() # 42 ################################### NEW
     def searchDGSGoods_Slot(self, apiReq , meta = {}):
         """ - """
@@ -1800,6 +2406,7 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.searchDGSGoods_Sig)
         self.qPool.start(self.replyFetcher)
+
 
     @pyqtSlot() # 34
     def scan_Slot(self,apiReq, meta = {}):
@@ -1921,6 +2528,19 @@ transferAsset
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.transferAsset_Sig)
         self.qPool.start(self.replyFetcher)
+
+    @pyqtSlot()
+    def transferCurrency_Slot(self,apiReq, meta = {}):
+        """- """
+        self.req.params=apiReq # same obj, only replace params
+        preppedReq = self.req.prepare()
+        self.queryURL_Sig.emit(preppedReq.url) # this is the raw request text. it goes back from here to the api access.
+        meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
+        replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
+        self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
+        QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.transferCurrency_Sig)
+        self.qPool.start(self.replyFetcher)
+
 
 
 

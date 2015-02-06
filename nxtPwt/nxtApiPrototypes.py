@@ -30,7 +30,17 @@ class nxtQs(object):
 
     def __init__(self):
 
-        #1
+        self.addPeer= {
+                                        "requestType" : "addPeer" , \
+                                        "peer" : "" ,\
+
+                                 }
+        self.blacklistPeer= {
+                                        "requestType" : "blacklistPeer" , \
+                                        "peer" : "" ,\
+
+                                        }
+
         self.broadcastTransaction= {
                                         "requestType" : "broadcastTransaction" , \
                                         "transactionJSON" : "transactionJSON" ,\
@@ -42,7 +52,8 @@ class nxtQs(object):
                                         "requestType" : "buyAlias" , \
                                         "alias" : "" , \
                                         "aliasName" : "" , \
-                                        "secretPhrase" : "" , \
+                                        "amountNQT" : "" , \
+                                         "secretPhrase" : "" , \
                                         "publicKey" : "" , \
                                         "feeNQT" : "" , \
                                         "deadline" : "" , \
@@ -68,6 +79,8 @@ class nxtQs(object):
                                         "signatureHash" : ""
         }
 
+
+
         self.cancelAskOrder= {
                                         "requestType" : "cancelAskOrder" , \
                                         "secretPhrase" : "PASSPHRASE" ,\
@@ -89,7 +102,16 @@ class nxtQs(object):
                                         "encryptToSelfMessageNonce": "" , \
                                         "recipientPublicKey": ""
                                          }
-        #4
+
+
+        self.cancelDeleteCurrency = {
+                                        "requestType" : "cancelDeleteCurrency" , \
+                                        "account" : "" , \
+                                        "currency" : "" , \
+
+                                        }
+
+
         self.cancelBidOrder= {
                                         "requestType" : "cancelBidOrder" , \
                                         "secretPhrase" : "PASSPHRASE",\
@@ -170,12 +192,160 @@ class nxtQs(object):
                                         "encryptToSelfMessageNonce": "" , \
                                         "recipientPublicKey": ""
                                          }
-        #7
+
+
+        self.currencyBuy = {
+                                        "requestType" : "currencyBuy" , \
+                                        "currency" : "" , \
+                                        "rateNQT" : "" , \
+                                        "units" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+        self.currencyMint = {
+                                        "requestType" : "currencyMint" , \
+                                        "currency" : "" , \
+                                        "nonce" : "" , \
+                                        "units" : "" , \
+                                        "counter" : "",\
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
+
+        self.currencyReserveClaim = {
+                                        "requestType" : "currencyReserveClaim" , \
+                                        "currency" : "" , \
+                                        "units" : "" , \
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
+
+
+        self.currencyReserveIncrease = {
+                                        "requestType" : "currencyReserveIncrease" , \
+                                        "currency" : "" , \
+                                        "amountPerUnitNQT" : "" , \
+                                        "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
+        self.currencySell = {
+                                        "requestType" : "currencySell" , \
+                                        "currency" : "" , \
+                                        "rateNQT" : "" , \
+                                        "units" : "" , \
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+        self.deleteCurrency = {
+                                        "requestType" : "deleteCurrency" , \
+                                        "currency" : "" , \
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
         self.decodeHallmark= {
                                         "requestType" : "decodeHallmark" , \
                                         "hallmark" : "HEXSTRING"
                                         }
-        #8
         self.decodeToken= {
                                         "requestType" : "decodeToken" , \
                                         "website" :"WEBSITE" ,\
@@ -190,6 +360,30 @@ class nxtQs(object):
                                         "secretPhrase" : "",\
                                         "decryptedMessageIsText": ""
                                          }
+
+        self.deleteAlias = {
+                                        "requestType" : "deleteAlias" , \
+                                        "alias" : "" , \
+                                        "aliasName" : "" , \
+                                        "amountNQT" : "" , \
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
 
         self.dgsDelisting = {
                                         "requestType" : "dgsDelisting", \
@@ -379,6 +573,31 @@ class nxtQs(object):
                                         "encryptToSelfMessageNonce": "" , \
                                         "recipientPublicKey": "" ,\
                                         }
+
+        self.dividendPayment = {
+                                        "requestType" : "dividendPayment" , \
+                                        "asset" : "" , \
+                                        "height" : "" , \
+                                        "amountNQTPerQNT" : "" , \
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
         self.encryptTo = {
                                         "requestType" : "encryptTo", \
                                         "recipient" : "" , \
@@ -387,8 +606,6 @@ class nxtQs(object):
                                         "secretPhrase" : ""
                                         }
 
-
-        #9 # DEBUG API!!!
         self.fullReset = {
                                         "requestType" : "fullReset" ,  \
                                         }
@@ -402,12 +619,13 @@ class nxtQs(object):
         #10
         self.getAccount = {
                                         "requestType" : "getAccount" , \
-                                        "account" : "account"
+                                        "account" : "account", \
+                                        "includeLessors" : "", \
+                                        "includeAssets" : "", \
+                                        "includeCurrencies" : "", \
+
                                         }
 
-
-
-###
 
         self.getAccountAssets = {
                                         "requestType" : "getAccountAssets", \
@@ -424,29 +642,6 @@ class nxtQs(object):
                                         "requestType" : "getAccountBlockCount", \
                                         "account" : "" , \
                                         }
-#
-#  *NEW 1
-# getAccountAssets   javadoc     
-# :
-# :
-# :
-#
-#
-#  *NEW 2
-# getAccountAssetCount   javadoc     
-# :
-# :
-#
-#
-#   *NEW 3
-# getAccountBlockCount   javadoc     
-# :
-
-
-
-
-
-
 
         #11
         self.getAccountBlockIds= {
@@ -466,6 +661,23 @@ class nxtQs(object):
                                         "includeTransactions" : "true"
                                         }
 
+
+
+        self.getAccountCurrencies = {
+                                        "requestType" : "getAccountCurrencies" , \
+                                        "account" : "" , \
+                                        "currency" : "" , \
+                                        "height" : "" , \
+
+                                        }
+
+
+        self.getAccountCurrencyCount = {
+                                        "requestType" : "getAccountCurrencyCount" , \
+                                        "account" : "" , \
+                                        "height" : "" , \
+
+                                        }
 
         #12
         self.getAccountCurrentAskOrderIds= {
@@ -504,6 +716,15 @@ class nxtQs(object):
                                         "lastIndex" : ""
                                         }
 
+        self.getAccountExchangeRequests = {
+                                        "requestType" : "getAccountExchangeRequests" , \
+                                        "account" : "" , \
+                                        "currency" : "" , \
+                                        "firstIndex" : "" , \
+                                         "lastIndex" : "" , \
+                                         }
+
+
         #14
         self.getAccountLessors = {
                                         "requestType" : "getAccountLessors" ,  \
@@ -524,8 +745,6 @@ class nxtQs(object):
                                         "account" : "ACCNUM"
                                         }
 
-# HERE CHANGE
-
         #16
         self.getAccountTransactionIds= {
                                         "requestType" : "getAccountTransactionIds" , \
@@ -535,9 +754,9 @@ class nxtQs(object):
                                         "subtype":"" ,\
                                         "firstIndex" : "" ,\
                                         "lastIndex":"",\
+                                        "withMessage": "", \
                                         "numberOfConfirmations": ""
                                         }
-
 
         #16
         self.getAccountTransactions= {
@@ -548,10 +767,10 @@ class nxtQs(object):
                                         "subtype":"" ,\
                                         "firstIndex" : "" ,\
                                         "lastIndex":"",\
-                                        "numberOfConfirmations": ""
+                                        "numberOfConfirmations": "", \
+                                        "withMessage": "", \
                                         }
-# HERE CHANGE
-        #17
+
         self.getAlias = {
                                         "requestType" : "getAlias" , \
                                         "alias" : "aliasId"
@@ -570,11 +789,6 @@ class nxtQs(object):
                                         "requestType" : "getAliasCount" , \
                                         "account" : ""
                                         }
-#
-# ,  *NEW 4
-# getAliasCount   javadoc     
-# :
-
 
 
 
@@ -584,6 +798,26 @@ class nxtQs(object):
                                         "firstIndex" : "",\
                                         "lastIndex" : ""
                                         }
+
+        self.getAllCurrencies = {
+                                        "requestType" : "getAllCurrencies" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "includeCounts" : "" , \
+
+                                        }
+
+
+        self.getAllExchanges = {
+                                        "requestType" : "getAllExchanges" , \
+                                        "timestamp" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "includeCurrencyInfo" : "" , \
+
+                                        }
+
+
         #21
         self.getAllOpenAskOrders= {
                                         "requestType" : "getAllOpenAskOrders" , \
@@ -669,19 +903,6 @@ class nxtQs(object):
                                         "includeCounts":""
                                         }
 
-#
-#
-# getAssets   javadoc      NEW
-# assets:
-# assets:
-# assets:
-# includeCounts:
-
-
-
-
-
-
         #57
         self.getAssetAccountCount = {
                                         "requestType" : "getAssetAccountCount" ,  \
@@ -689,10 +910,6 @@ class nxtQs(object):
                                         "height" : "",\
 
                                         }
-#   *NEW 5
-# getAssetAccountCount   javadoc     
-# asset:
-# height:
 
         self.getAssetsByIssuer = {
                                         "requestType" : "getAssetsByIssuer", \
@@ -754,10 +971,108 @@ class nxtQs(object):
                                         "requestType" : "getBlockchainStatus",
                                     }
         #32
+
+        self.getBuyOffers = {
+                                        "requestType" : "getBuyOffers" , \
+                                        "currency" : "" , \
+                                        "account" : "" , \
+                                        "availableOnly" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+
+                                        }
+
+
         self.getConstants= {
                                         "requestType" : "getConstants"
                                         }
 
+
+        self.getCurrencies = {
+                                        "requestType" : "getCurrencies" , \
+                                        "currencies" : "" , \
+                                        "currencies" : "" , \
+                                        "currencies" : "" , \
+                                         "includeCounts" : "" , \
+
+                                        }
+
+
+        self.getCurrenciesByIssuer = {
+                                        "requestType" : "getCurrenciesByIssuer" , \
+                                        "account" : "" , \
+                                        "account" : "" , \
+                                        "account" : "" , \
+                                         "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                        "includeCounts" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
+        self.getCurrency = {
+                                        "requestType" : "getCurrency" , \
+                                        "currency" : "" , \
+                                        "code" : "" , \
+
+                                        }
+
+
+        self.getCurrencyAccountCount = {
+                                        "requestType" : "getCurrencyAccountCount" , \
+                                        "currency" : "" , \
+                                        "height" : "" , \
+
+                                        }
+
+
+        self.getCurrencyAccounts = {
+                                        "requestType" : "getCurrencyAccounts" , \
+                                        "currency" : "" , \
+                                        "height" : "" , \
+                                        "firstIndex" : "" , \
+                                         "lastIndex" : "" , \
+
+                                        }
+
+        self.getCurrencyFounders = {
+                                        "requestType" : "getCurrencyFounders" , \
+                                        "currency" : "" , \
+
+                                        }
+
+
+
+        self.getCurrencyIds = {
+                                        "requestType" : "getCurrencyIds" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+
+                                        }
+
+
+        self.getCurrencyTransfers = {
+                                        "requestType" : "getCurrencyTransfers" , \
+                                        "currency" : "" , \
+                                        "account" : "" , \
+                                        "firstIndex" : "" , \
+                                         "lastIndex" : "" , \
+                                        "includeCurrencyInfo" : "" , \
+
+                                        }
 
         self.getDGSGood = {
                                         "requestType" : "getDGSGood", \
@@ -774,17 +1089,14 @@ class nxtQs(object):
                                         "includeCounts" : ""
                 }
 
-
-
-
-###
         self.getDGSGoodsCount = {
                                         "requestType" : "getDGSGoodsCount", \
                                         "seller" : "" , \
-
                                         "inStockOnly" : "",\
 
                 }
+
+
 
         self.getDGSGoodsPurchases = {
                                         "requestType" : "getDGSGoodsPurchases", \
@@ -792,36 +1104,15 @@ class nxtQs(object):
                                         "firstIndex" : "" , \
                                         "lastIndex" : "" , \
                                         "withPublicFeedbacksOnly" : "",\
-
+                                         "completed" : "",\
                 }
 
         self.getDGSGoodsPurchaseCount = {
                                         "requestType" : "getDGSGoodsPurchaseCount", \
                                         "goods" : "" , \
                                         "withPublicFeedbacksOnly" : "" , \
-
+                                         "completed" : "",\
                 }
-
-#
-# , *NEW 6
-# getDGSGoodsCount   javadoc     
-# seller:
-# inStockOnly:
-#
-#
-#  *NEW 7
-# getDGSGoodsPurchases   javadoc     
-# :
-# firstIndex:
-# lastIndex:
-# :
-
-#
-# , *NEW 8
-# getDGSGoodsPurchaseCount   javadoc     
-# :
-# :
-
 
 
         self.getDGSPendingPurchases = {
@@ -835,21 +1126,13 @@ class nxtQs(object):
                                         "purchase" : ""
                 }
 
-
-#
-#   *NEW 9
-# getDGSPurchaseCount   javadoc     
-# seller:
-# buyer:
-
         self.getDGSPurchaseCount = {
                                         "requestType" : "getDGSPurchaseCount", \
                                         "seller" : "" , \
                                         "buyer" : "" , \
+                                        "completed" : "",\
+                                        "withPublicFeedbacksOnly" : ""
                 }
-
-
-
 
         self.getDGSPurchases = {
                                         "requestType" : "getDGSPurchases", \
@@ -868,15 +1151,11 @@ class nxtQs(object):
                                         "firstIndex" : "" , \
                                         "lastIndex" : "" , \
                 }
-#
-#  *NEW 10
-# getDGSTags   javadoc     
-# :
-# :
-# :
 
-
-
+        self.getDGSTagCount = {
+                                "requestType" : "getDGSTagCount", \
+                                "inStockOnly" : ""
+                            }
 
         self.getECBlock = {
                                 "requestType" : "getECBlock", \
@@ -885,11 +1164,46 @@ class nxtQs(object):
 
 
 
+
+        self.getExchanges = {
+                                        "requestType" : "getExchanges" , \
+                                        "currency" : "" , \
+                                        "account" : "" , \
+                                        "firstIndex" : "" , \
+                                         "lastIndex" : "" , \
+                                        "includeCurrencyInfo" : "" , \
+
+                                        }
+
+
+        self.getExchangesByExchangeRequest = {
+                                        "requestType" : "getExchangesByExchangeRequest" , \
+                                        "transaction" : "" , \
+                                        "includeCurrencyInfo" : "" , \
+
+                                        }
+
+
+        self.getExchangesByOffer = {
+                                        "requestType" : "getExchangesByOffer" , \
+                                        "offer" : "" , \
+                                        "includeCurrencyInfo" : "" , \
+
+                                        "firstIndex" : "" , \
+
+                                        "lastIndex" : "" , \
+
+                                        }
+
+
+
         #33
         self.getForging= {
                                         "requestType" : "getForging" , \
                                         "secretPhrase" : "PASSPHRASE"   ,\
+                                        "adminPassword" : ""   ,\
                                         }
+
 
         #34
         self.getGuaranteedBalance= {
@@ -898,6 +1212,17 @@ class nxtQs(object):
                                         "numberOfConfirmations" : "CONFIRMATIONS"
                                     }
         #35
+
+        self.getMintingTarget = {
+                                        "requestType" : "getMintingTarget" , \
+                                        "currency" : "" , \
+                                        "account" : "" , \
+                                        "units" : "" , \
+
+                                        }
+
+
+
         self.getMyInfo= {
                                         "requestType" : "getMyInfo"
                                        }
@@ -905,6 +1230,15 @@ class nxtQs(object):
         self.getNextBlockGenerators = {
                                         "requestType" : "getNextBlockGenerators"
                                         }
+
+
+        self.getOffer = {
+                                        "requestType" : "getOffer" , \
+                                        "offer" : "" , \
+
+                                        }
+
+
         #36
         self.getPeer= {
                                         "requestType" : "getPeer" ,\
@@ -914,10 +1248,9 @@ class nxtQs(object):
         self.getPeers= {
                                         "requestType" : "getPeers",\
                                         "active" : "",\
-                                        "state" : ""
+                                        "state" : "",\
+                                        "includePeerInfo" : ""
                                         }
-
-
         #38
         self.getPoll ={                 "requestType" : "getPoll", \
                                         "poll" : ""
@@ -932,6 +1265,15 @@ class nxtQs(object):
                                         "includeCounts" : "true"
                                         }
         #41
+
+        self.getSellOffers = {
+                                        "requestType" : "getSellOffers" , \
+                                        "account" : "" , \
+                                        "availableOnly" : "" , \
+                                        "firstIndex" : "" , \
+                                         "lastIndex" : "" , \
+
+                                        }
         self.getTime= {
                                         "requestType" : "getTime"
                                        }
@@ -991,6 +1333,48 @@ class nxtQs(object):
                                         "encryptToSelfMessageNonce": "" , \
                                         "recipientPublicKey": "" ,\
                                          }
+
+        self.issueCurrency = {
+                                        "requestType" : "issueCurrency" , \
+
+                                        "name" : "" , \
+                                        "code" : "" , \
+                                        "description" : "" , \
+
+                                        "type" : "" , \
+                                        "initialSupply" : "" , \
+                                        "reserveSupply" : "" , \
+
+                                        "maxSupply" : "" , \
+                                        "issuanceHeight" : "" , \
+                                        "minReservePerUnitNQT" : "" , \
+
+                                        "minDifficulty" : "" , \
+                                        "maxDifficulty" : "" , \
+                                        "ruleset" : "" , \
+
+                                        "algorithm" : "" , \
+                                        "decimals" : "" , \
+
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
 
         #47
         self.leaseBalance= {
@@ -1098,6 +1482,41 @@ class nxtQs(object):
 
 
 
+        self.publishExchangeOffer = {
+                                        "requestType" : "publishExchangeOffer" , \
+
+                                        "currency" : "" , \
+                                        "buyRateNQT" : "" , \
+                                        "sellRateNQT" : "" , \
+
+                                        "totalBuyLimit" : "" , \
+                                        "totalSellLimit" : "" , \
+                                        "initialBuySupply" : "" , \
+
+                                        "initialSellSupply" : "" , \
+                                        "expirationHeight" : "" , \
+
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+
+
+
         self.readMessage = {
                                         "requestType" : "readEncryptedNote", \
                                         "secretPhrase" : "" , \
@@ -1119,7 +1538,18 @@ class nxtQs(object):
                                         "firstIndex":"", \
                                         "lastIndex" : "" , \
                                         "includeCounts" : ""
-                } # NEW 134
+                }
+
+
+
+        self.searchCurrencies = {
+                                        "requestType" : "searchCurrencies" , \
+                                        "query" : "" , \
+                                        "firstIndex" : "" , \
+                                        "lastIndex" : "" , \
+                                         "includeCounts" : "" , \
+
+                                        }
 
 
         self.searchDGSGoods = {
@@ -1131,7 +1561,7 @@ class nxtQs(object):
                                         "seller" : "", \
                                         "inStockOnly" : "" , \
                                         "hideDelisted" : ""
-                            } # NEW 134
+                            }
 
         # DEBUG API !!!
         self.scan = {
@@ -1215,15 +1645,15 @@ class nxtQs(object):
 
         self.setAccountInfo= {
                                         "requestType" : "setAccountInfo" , \
-                                        "publicKey":"",\
-                                        "secretPhrase" : "0", \
-                                        "deadline" : "DEADLINE",\
-                                        "feeNQT" : "100000000" ,\
                                         "name" : "name",\
                                         "description" : "description", \
+                                        "secretPhrase" : "0", \
+                                        "publicKey":"", \
+                                        "deadline" : "",\
+                                        "feeNQT" : "100000000" ,\
                                         "referencedTransactionFullHash" : "" , \
                                         "broadcast" : "" ,\
-                                        "message": "" , \
+                                        "message":"" , \
                                         "messageIsText": "" , \
                                         "messageToEncrypt": "" , \
                                         "messageToEncryptIsText": "" , \
@@ -1234,7 +1664,7 @@ class nxtQs(object):
                                         "encryptToSelfMessageData": "" , \
                                         "encryptToSelfMessageNonce": "" , \
                                         "recipientPublicKey": "" ,\
-                                         } #"recipient" : "" ,\ ???
+                                         }
 
 
 
@@ -1267,8 +1697,11 @@ class nxtQs(object):
                                         "requestType" : "signTransaction" ,  \
                                         "unsignedTransactionBytes" : "unsignedTransactionBytes" ,  \
                                         "unsignedTransactionJSON" : "",\
-                                        "secretPhrase" : "PASSPHRASE"
+                                        "secretPhrase" : "PASSPHRASE",\
+                                        "valdate": ""
                                         }
+
+
         #57
         self.startForging = {
                                         "requestType" : "startForging" ,  \
@@ -1277,15 +1710,11 @@ class nxtQs(object):
         #58
         self.stopForging = {
                                         "requestType" : "stopForging" ,  \
-                                        "secretPhrase" : "PASSPHRASE"
+                                        "secretPhrase" : "",\
+                                        "adminPassword" : ""
                                         }
 
 
-
-# HERE CHANGE
-#
-#
-#         #58
         self.transferAsset= {
                                         "requestType" : "transferAsset" , \
                                         "publicKey":"",\
@@ -1310,6 +1739,32 @@ class nxtQs(object):
                                         "recipientPublicKey": "" ,\
                                         }
 
+        self.transferCurrency = {
+                                        "requestType" : "transferCurrency" , \
+                                        "recipient" : "" , \
+                                        "currency" : "" , \
+                                        "units" : "" , \
+
+
+                                         "secretPhrase" : "" , \
+                                        "publicKey" : "" , \
+                                        "feeNQT" : "" , \
+                                        "deadline" : "" , \
+                                        "referencedTransactionFullHash" : "" , \
+                                        "broadcast" : "",\
+                                        "message": "" , \
+                                        "messageIsText": "" , \
+                                        "messageToEncrypt": "" , \
+                                        "messageToEncryptIsText": "" , \
+                                        "encryptedMessageData":	 "" , \
+                                        "encryptedMessageNonce": "" , \
+                                        "messageToEncryptToSelf": "" , \
+                                        "messageToEncryptToSelfIsText":	 "" , \
+                                        "encryptToSelfMessageData": "" , \
+                                        "encryptToSelfMessageNonce": "" , \
+                                        "recipientPublicKey": ""
+                                        }
+  ###########
 
 
 #
