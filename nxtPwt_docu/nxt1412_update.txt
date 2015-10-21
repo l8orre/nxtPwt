@@ -1,0 +1,104 @@
+
+new API funcs
+ 
+   ??? param chnage or nothing??
+Message pattern in AccountInfo. An account owner can set a regular expression
+pattern in the AccountInfo for his account, using the setAccountInfo API.
+Once such a pattern has been set, incoming transactions to this account are only
+accepted if they contain a plain text message which matches this pattern. The
+syntax follows the java.util.regex.Pattern specification.
+ 
+ 
+
+
+-rw-rw---- 1 azure azure  737 Feb  3 07:04 nxt-client-1.4.3e.changelog.txt
+
+Added getExchangesByOffer API to get executed currency exchanges for an offer.
+  
+ 
+ 
+-rw-rw---- 1 azure azure 1762 Feb  3 07:04 nxt-client-1.4.10.changelog.txt
+
+New API calls for peer management: addPeer and blacklistPeer. AddPeer will add
+a peer address or IP, optionally with port number, to the list of known peers
+and will try to connect to it. BlacklistPeer (password protected) will
+blacklist a peer, for the default blacklisting period.
+
+These APIs, and a few others related to peer networking, have been grouped under
+a new Networking tab on the /test page.
+
+ 
+-rw-rw---- 1 azure azure 2165 Feb  4 19:50 nxt-client-1.4.12.changelog.txt
+
+
+
+ #############################################
+
+param changes
+
+-rw-rw---- 1 azure azure 1535 Feb  3 07:04 nxt-client-1.3.5.changelog.txt
+
+ 
+Added completed parameter to getDGSGoodsPurchases, getDGSGoodsPurchaseCount,
+getDGSPurchaseCount, getDGSPurchases, to allow querying for completed purchases
+only. Added withPublicFeedbacksOnly parameter to getDGSPurchaseCount.
+
+
+
+Include full peer info in getPeers API if includePeerInfo=true, to avoid having
+to do a separate getPeer request for each peer.
+
+Allow transaction signing in signTransaction to skip the validation of the
+transaction bytes being signed, if an optional validate=false parameter is added.
+This would be useful when signing transaction bytes on a machine that doesn't have
+the full blockchain downloaded, which normally prevents validation.
+
+-rw-rw---- 1 azure azure 3290 Feb  3 07:04 nxt-client-1.4.0e.changelog.txt
+
+
+API changes:
+
+After MS block, adding a public key announcement when sending a transaction to
+an account without a public key will be optional.
+
+Added withMessage boolean parameter to getAccountTransactions and 
+getAccountTransactionIds APIs, to return only transactions having a message
+attachment, either non-encrypted or decryptable by the account.
+
+Added optional includeLessors, includeAssets, and includeCurrencies boolean
+parameters to getAccount API. Set to false when retrieving those data is not
+needed, in order to improve the getAccount performance.
+
+After MS block, sending messages, selling aliases, and leasing balances, to the
+Genesis account, will be disallowed.
+
+The popOff debug API now allows pop off of more than max rollback number of
+blocks, triggering a full rescan in such case.
+  
+
+-rw-rw---- 1 azure azure  737 Feb  3 07:04 nxt-client-1.4.3e.changelog.txt
+Added availableOnly parameter to getBuyOffers and getSellOffers, to return
+only exchange offers with non-zero supply and limit, default false. This
+parameter is however ignored when both currency and account are specified in
+the above APIs.
+  
+ 
+
+-rw-rw---- 1 azure azure 1762 Feb  3 07:04 nxt-client-1.4.10.changelog.txt
+
+ 
+These APIs, and a few others related to peer networking, have been grouped under
+a new Networking tab on the /test page.
+ 
+-rw-rw---- 1 azure azure 2165 Feb  4 19:50 nxt-client-1.4.12.changelog.txt
+
+Forging API improvements: getForging and stopForging now allow access using
+admin password instead of account secret phrase. This respectively retrieves
+the status of, or stops the forging of, all currently forging accounts. As
+with other admin password protected APIs, password is not required when the
+API server is listening on the localhost interface only. The getState API now
+also returns a needsAdminPassword boolean, to indicate this.
+
+--------------------
+
+

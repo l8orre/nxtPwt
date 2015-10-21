@@ -74,13 +74,13 @@ class nxtUC_apiAccess(nxtUseCaseMeta): # this is old style. leave as it is for n
         #self.app = app # we need to know app
         self.sessMan = sessMan
         self.meta = {}
-        
+
     def initWin7(self, nxtWin7, ui7 ):
-        """ - these are the activators FROM the widgets""" 
+        """ - these are the activators FROM the widgets"""
         self.nxtWin7 = nxtWin7
         self.ui7 = ui7
         QObject.connect(self.nxtWin7, SIGNAL("UC30_apiAcc(PyQt_PyObject)"),  self.execUC30_CB) # catch the activator from app.
-  
+
     def initSignals(self,):    
         """   returning FROM the api   """
          # same CB here to return to the widget.
@@ -181,6 +181,9 @@ class UC2_accountHandler(nxtUseCaseMeta):
     # this starts polling the resident account
     def pollaccRes(self):
         self.accRes.poll1Start(self.meta)
+
+
+
     # here we can poll any account we want
     def pollAccStop(self):
         self.accRes.poll1Stop(self.meta)
@@ -357,12 +360,9 @@ class UC5_AE(nxtUseCaseMeta):
     uc5_getAssets_Sig = pyqtSignal(object, object)
     uc5_getAsset_Sig = pyqtSignal(object, object)
     uc5_getAssetIds_Sig = pyqtSignal(object, object)
-
     uc5_getAssetsByName_Sig = pyqtSignal(object, object)
-
     uc5_getAccountResid_Sig = pyqtSignal(object, object)
     uc5_getAccountSlated_Sig = pyqtSignal(object, object)
-
     uc5_focusAsset_Sig = pyqtSignal(object, object) # emit by AE_assets to send assetId to Orderbook!
 
 
@@ -595,11 +595,158 @@ class UC8_Trades(nxtUseCaseMeta):
 
 
 
-class UC9_MSGer_handler(nxtUseCaseMeta):
 
-    def __init__(self, sessMan,  app,):
-        super(UC9_MSG_handler   , self   ).__init__(sessMan)
-        self.app = app # we need to know app
+
+
+
+class UC51_BlockchainTraversal(nxtUseCaseMeta):
+
+    """- """
+
+    def __init__(self, sessMan, ):
+        super(UC51_BlockchainTraversal   , self   ).__init__(sessMan)
+        self.apiCalls = nxtQs()
+        #self.app = app # we need to know app
+        self.sessMan = sessMan
+        self.meta = {'caller':'UC_BlockhainTraversal'}
+
+
+        self.allAccs = nxtMods.Accounts(sessMan)
+
+        defPass17 = '17oreosetc17oreosetc'
+
+        acctSecKey = defPass17
+
+        self.accRes = nxtMods.Account(self, sessMan, acctSecKey,  )
+
+        self.accFOC = self.accRes.data['account']
+
+
+        self.pollaccRes()
+
+# acct handler needs own methods!
+
+    def initWin6(self, nxtWin6, ui6 ):
+        """ - these are the activators FROM the widgets"""
+        self.nxtWin6 = nxtWin6
+        self.ui6 = ui6
+        QObject.connect(self.nxtWin6, SIGNAL("UC30_apiAcc(PyQt_PyObject)"),  self.execUC30_CB) # catch the activator from app.
+
+
+    def initSignals(self,):
+        """   returning FROM the api   """
+         # same CB here to return to the widget.
+        QObject.connect( self.nxtApi, SIGNAL("catchAll_Sig(PyQt_PyObject, PyQt_PyObject)"), self.catchAll_fromApiSlot ) # all of them
+        QObject.connect( self.nxtApi, SIGNAL("queryURL_Sig(PyQt_PyObject)"), self.catchQ ) # all of them
+
+    def execUC30_CB(self, apiReq): # hit the apiBroker with these two requests: self.nxtApi,
+        self.nxtApi.catchAll_Slot( apiReq, self.meta)
+
+
+
+    def getAccount(self):
+        pass
+
+    def MSGs(self): # including Polls
+        pass
+    def getNxtXfers(self):
+        pass
+
+
+
+#
+#
+#
+# class UC3_TX_monitor(nxtUseCaseMeta):
+#
+#     """- """
+#
+#     newAsset_Sig = pyqtSignal(object, object)
+#     newMXfer_Sig = pyqtSignal(object, object)
+#     newAskOrder_Sig = pyqtSignal(object, object)
+#     newBidOrder_Sig = pyqtSignal(object, object)
+#     newTrade_Sig = pyqtSignal(object, object)
+#     newBidOrderCancel_Sig = pyqtSignal(object, object)
+#     newAskOrderCancel_Sig = pyqtSignal(object, object)
+#     newMSG_Sig = pyqtSignal(object, object)
+#     newAlias_Sig = pyqtSignal(object, object)
+#     newLease_Sig = pyqtSignal(object, object)
+#     newAcctInfo_Sig = pyqtSignal(object, object)
+#     newPoll_Sig = pyqtSignal(object, object)
+#     newVote_Sig = pyqtSignal(object, object)
+#
+#
+#     def __init__(self, sessMan,  ):
+#         super(UC3_TX_monitor   , self   ).__init__(sessMan)
+#         self.apiCalls = nxtQs()
+#         #self.app = app # we need to know app
+#         self.sessMan = sessMan
+#         self.meta = {'caller':'UC_TXchecker'}
+#         print(str(self.sessMan.activeNRS.block))
+#         self.TXs = {}
+#         self.init_Sigs()
+#
+#     def init_Sigs(self):
+#         QObject.connect(self.sessMan.activeNRS.block, SIGNAL("newTXs_Sig(PyQt_PyObject, PyQt_PyObject)"),  self.newTXs_CB)
+#         QObject.connect(self.sessMan.nxtApi, SIGNAL("getTransaction_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getTransaction_fromApi)
+#
+#
+#     def newTXs_CB(self, newTXs_inBlock, meta):
+#         print("NEW TXS!\n")
+#         for TX in newTXs_inBlock:
+#             self.TXs[TX] = nxtMods.TX(self.sessMan, TX )
+#             print( str(TX) + str(meta))
+#
+#     def getTransaction_fromApi(self, TX, meta): # TX is a dict returned from the API! NOT the TX INSTANCE ITSELF!
+#         print("getTransaction_fromApi in uc3: " + str(TX) + " --- " + str(meta) + "\n")
+#         # in principle this works, it is only a bit bit ugly.
+#         # has been tested, these appear once in the new block!
+#         if 'caller' in meta.keys():
+#
+#             if meta['caller'] == 'fromBlockCH':
+#                 pass
+#                 #print("TX fromBlockCH,   TX detect")
+#                 #for m in meta:
+#                 #    print(str(m) + " - " + str(meta[m]) )
+#                 #for k in TX:
+#                 #    print(str(k) + " - " + str(TX[k]) )
+#             elif  meta['caller'] == 'toBlockCH':
+#                 print("TX toBlockCH, not a TX detect")
+#         #    print("\n################" )
+#         #print("\n+++++++++++++++++++++++++" )
+#
+#
+#     # later - for detailed TX monitoring eg new asset emission
+#     def newAsset(self):
+#         self.emit( SIGNAL( "newAsset_Sig(PyQt_PyObject, PyQt_PyObject)"), self.cont, self.meta )
+
+
+
+
+
+
+
+
+class UC_shopKeeper(nxtUseCaseMeta):
+
+
+
+    def __init__(self, sessMan,  ): # WHY APP HERE? ;N OT NEEDED NNOT WANTE N
+        super(UC_shopKeeper   , self   ).__init__(sessMan)
+        self.apiCalls = nxtQs()
+        # self.app = app # we need to know app
+        self.sessMan = sessMan
+        self.meta = {'caller':'ucShopKeeper'}
+
+
+
+
+
+class UC_MSG_handler(nxtUseCaseMeta):
+
+    def __init__(self, sessMan,  ):
+        super(UC_MSG_handler   , self   ).__init__(sessMan)
+        #self.app = app # we need to know app
         self.sessMan = sessMan
         self.meta = {'caller':'UC9_MSG_handler'}
 
@@ -610,32 +757,6 @@ class UC9_MSGer_handler(nxtUseCaseMeta):
         pass
     def castVote(self):
         pass
-
-
-class UC_BlockchainTraversal(nxtUseCaseMeta):
-
-    """- """
-
-    def __init__(self, sessMan,  app):
-        super(UC_BlockchainTraversal   , self   ).__init__(sessMan)
-        self.apiCalls = nxtQs()
-        self.app = app # we need to know app
-        self.sessMan = sessMan
-        self.meta = {'caller':'UC_BlockhainTraversal'}
-
-
-class UC_shopKeeper(nxtUseCaseMeta):
-
-
-
-    def __init__(self, sessMan,  app):
-        super(UC_shopKeeper   , self   ).__init__(sessMan)
-        self.apiCalls = nxtQs()
-        self.app = app # we need to know app
-        self.sessMan = sessMan
-        self.meta = {'caller':'ucShopKeeper'}
-
-
 
 
 
@@ -668,8 +789,8 @@ if __name__ == "__main__":
     sys.exit(done)
  
  
- 
-# 
+
+#
 ## subclass QApplication and slap on whatever you want:
 #class XCPApplication(QApplication):
 #        """
@@ -690,7 +811,7 @@ if __name__ == "__main__":
 #
 #    def fetch_initial_data(self, update_wallet_callback_func):
 #        pass
-#        
+#
 #   old docstring
 # 1.) in WinCtrl.py
 #

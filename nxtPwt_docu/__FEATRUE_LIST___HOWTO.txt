@@ -1,0 +1,99 @@
+
+Offspring main features:
+
+   * Cross-platform, the same source code is compiled for various platforms.
+   * No web browser required, works offline
+   * Control multiple NXT accounts from single interface with one master password
+
+Support for basic NXT features and more:
+    * Send money
+    * Assign alias
+    * Create token
+    * Send messages to destination account (test phase, publicly visible)
+    * Validate token manually (for merchants)
+    * Sortable full transaction history details
+    * Advanced network status view section: recent blocks, orphaned blocks, active peers, known peers, blacklisted peers
+    * Quick blockchain download during which accounts can be used for operations
+    * Forging on / off switch with block estimation countdown timer
+    * Security features: encrypted accounts "wallet" file in user settable location (eg. USB stick)
+    * Display of total NXT holdings value in BTC and EUR according to latest rates and chart direct from DGEX
+    * Realtime BTC / NXT market rate and chart with level 2 full order depth from DGEX.com
+    * Choose between testnet or live NXT
+    * Asset exchange partially implemented for testnet
+
+Major features coming soon in later versions:
+
+    * Multicurrency client, incuding transfer capability for some of the other major cryptocurrencies
+    * Asset Exchange, trade NXT or any other assets directly peer-to-peer from the client without third party web sites
+    * Full block explorer with search
+    * Encrypted p2p messaging
+    * Transaction memos
+
+Offspring will support all current and coming features of NXT.
+
+
+
+
+Here is version 2.2 of my Windows/Mac OSX NXT client "NXT Solaris".
+
+
+Changelog
+-Mac OSX version added (source is included in the Windows downloads)
+-GUI Performance improvements
+-Changed the default testnet address to "http://tn01.nxtsolaris.info:6876/"
+-The JCL is no longer needed to compile the source code
+-Fixed a bug that prevented sending NXT to accounts without a public key in the BC
+-Fixed Bter market data retrieval
+-Fixed "secret maps to expected account number" check for secrets with characters beyond ascii
+-Added checks for enough funds before broadcasting transactions
+
+
+Download
+64-bit Windows Version: NXTSolaris-v2.2-Win64bit.zip (36.3 MB) – Download here
+SHA256 checksum for NXTSolaris-v2.2-Win64bit.zip: BCDC7C27755A138E44AE51FB3F842BB8E12FAC6AF3117F44BB99B9B01B581F95
+
+32-bit Windows Version: NXTSolaris-v2.2-Win32bit.zip (34.3 MB) – Download here
+SHA256 checksum for NXTSolaris-v2.2-Win32bit.zip: 0F6851CE16411756EB5ED9ADFBD1AF730CEC0B68D8566660D8A8257C0DF3F7B1
+
+32-bit Mac OSX Version: NXTSolaris-v2.2-OSX32bit.zip (9.5 MB) – Download here
+SHA256 checksum for NXTSolaris-v2.2-OSX32bit.zip: 76B416EB3783410E33AC14353501F9FC735863CE725205AE0DF78C1E678F76BD
+
+
+For screenshots and everything else please visit: http://nxtsolaris.wordpress.com/
+
+
+Installation
+Simply unzip the archive and run the NXTSolarisStarter.exe file.
+
+The current version 2.2 is compatible with the previous versions 2.1.
+
+Roadmap
+1.) Move current version of my code to XE5 and release closed source 32-bit and 64-bit versions for Windows. [DONE]
+2.) Refactor code to a MVC architecture, so that I can create separate GUIs while using the same version of the business logic code. [DONE]
+3.) Create new GUIs for Windows and OS X using the same business logic, but based on the cross-platform Firemonkey libraries. [DONE]
+4.) Release Windows version (32 and 64 bit) based on FireMonkey. [DONE]
+5.) Implement new features from the TODO list [DONE]
+6.) Release source-code for FireMonkey Windows version (February 16th, 2014 latest) [DONE]
+7.) Implement new features from the TODO list
+8.) OSX compatibility changes
+9.) Release OSX version based on FireMonkey.
+10.) Release source code for FireMonkey OSX version.
+
+
+I've reached the end of my roadmap! :-)
+
+
+TODO list
+-Arbitrary message encryption
+-Offer a simple and advanced GUI, with the simple GUI targeted at new users
+
+
+
+Donations
+I hope you like my client and I’d be extremely happy to see some donations for the future of this project!
+
+NXT: 1758531264253431177
+	Report to moderator  
+NXT Solaris - Early NXT Windows client
+Raspberry Pi NXT node
+

@@ -37,7 +37,7 @@ import logging as lg
 import nxtPwt.nxtModels as nxtMods
 from nxtPwt.nxtApiSigs import nxtApi
 
-
+import os
 # Here we can do some control on whether or not to do testing 
 #import nxtPwt.nxtTestCases as nxtTestCases
 
@@ -146,7 +146,7 @@ connection management.
     
             self.uc29_changeConn = nxtUseCases.UC29_changeConn(self,  ) #
             
-            
+            self.uc51_blkch_trav =  nxtUseCases.UC51_BlockchainTraversal(self,  ) #
             self.uc30 = nxtUseCases.nxtUC_apiAccess(self,   ) #
             self.uc30.initSignals()
     #

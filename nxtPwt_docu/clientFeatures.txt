@@ -1,0 +1,32 @@
+
+*** ANNOUNCEMENT - NXT Wallet published on Google-Play  ***
+
+Version 0.5.5 features:
+
+Manage accounts
+Create/Input several accounts.
+Check balance.
+Set each account a tag to easy to remember.
+Show aliases registered by your account.
+Details about transactions, and period options ( 7 days, 30 days and total ), classified by "In", "Out" and "Other".
+
+Addresses book
+You can store the destination accounts which your used frequently.
+Import accounts to addresses book from your tracsactions history.
+Each destination account has a tag too.
+
+Alias assign/check
+You can check a alias, see if it was registered by other people.
+Assign a new alias or update the uri of your alias.
+
+Arbitrary Messages
+You can send messages to other and view all messages of your account.
+Encrypted Message
+Only the sender or recipient can decode the encrypted message.
+
+QRCode
+Real-time price
+Nxt News
+All transactions are encrypted in local.
+
+

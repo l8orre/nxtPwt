@@ -33,14 +33,14 @@ from PyQt4 import  Qt , QtGui,  QtCore
 from PyQt4.QtCore import  SIGNAL , QObject, pyqtSignal, pyqtSlot
 
 # timer:
-import os
+#import os
 import time
-
-from requests import Request # as Request
-from requests import Response  as Resp
-from requests import   Session
-
-import requests
+#
+# from requests import Request # as Request
+# from requests import Response  as Resp
+# from requests import   Session
+#
+# import requests
 
 
 #from werkzeug.wrappers import Request, Response
@@ -48,134 +48,9 @@ import requests
 
 
 #from jsonrpc import JSONRPCResponseManager, dispatcher
+#
+# from nxtPwt.nxtApiSigs import nxtApi
 
-from nxtPwt.nxtApiSigs import nxtApi
-
-
-# obs: this apparently ccreates the werkzeug server right here when loading the app!
-# 
-###################################################################
-#
-# threading requests
-#
-#class JSON_Emitter(QObject):
-#    """ - this is needed in QRunnable, because QRunnable is NOT able to emit signals. But this is. """    
-#
-#    JSONREPL = pyqtSignal(object  ,object) #  object1 is the request, object2 can carry meta data for use case logic 
-#
-#    def __init__(self,     meta  = {}): # meta is organizational meta data that client can use
-#        super(QObject, self, ).__init__()
-#        #self.jsonReq = jsonReq 
-#         
-#        #metaThread = copy(meta)
-#        # NOTE: This MUST be done, otherwise the 'meta' object will only be ONE meta object (from the last query)
-#        # that is referenced for EVERY query and the metaData of the earlier queries will be destroyed!!!!!!!!        
-#        #del meta
-#        #self.metaThread = metaThread
-#
-#         
-#         
-#         
-#class JSON_Runner(QtCore.QRunnable):
-#    """- This is what needs to be put into the QThreadpool """
-#    nxtApi = nxtApi
-#    
-#    def __init__(self, emitter,  ):
-#        super(QtCore.QRunnable, self).__init__()
-#        self.emitter = emitter
-#
-#        #self.apiCalls = nxtQs()
-#        #self.nxtApi = nxtApi
-#        self.session = Session()
-#        sessUrl =  'http://localhost:6876/nxt?' #self.sessMan.activeNRS.comp['url']
-#        #print("sessUrl -  "+ str(sessUrl))
-#        
-#        #        auth = requests.auth.HTTPBasicAuth('','') # 'rpcuser',  'xcppw1234')
-#        headers = {'content-type': 'application/json'}
-#        # self.req = Request( method='GET', url = sessUrl, params = {})
-#        #self.conn['url'] = sessUrl
-#        #self.req = Request( method='POST', url = sessUrl, params = {}, headers = headers,       )
-#        
-#        #QObject.connect( self.nxtApi, SIGNAL("catchAll_Sig(PyQt_PyObject, PyQt_PyObject)"), self.testFun ) # all of them
-#        
-## check if this goes to class
-## 
-##        ##############
-##    @dispatcher.add_method
-##    def getState(**kwargs):
-##
-##        payload = { "requestType" : "getState"   }
-##        # can do this fancy with the session object also
-##        response = requests.post('http://localhost:6876/nxt?', params=payload)
-##        
-##        rawRes=response.json()
-##        
-##        return rawRes #kwargs["p1"] + kwargs["p2"]
-##
-##    @dispatcher.add_method
-##    def getTime(**kwargs):
-##        payload = { "requestType" : "getTime"   }
-##        
-##        response = requests.post('http://localhost:6876/nxt?', params=payload)
-##        rawRes=response.json()
-##        return rawRes #kwargs["p1"] + kwargs["p2"]
-##
-##    
-##    @Request.application
-##    def application(self, request ):
-##        
-##        response = JSONRPCResponseManager.handle(request.get_data(cache=False, as_text=True), dispatcher)
-##        RR = Response(response.json, mimetype='application/json')
-##        
-##        return    RR           #finalRes #Response(jsonRes, mimetype='application/json')
-#    # this sends this well-bahved reply to curl:
-#    #azure@boxfish:~/workbench/nxtDev/BRIDGE$ curl -i -X POST -d '{"jsonrpc": "2.0", "method": "getTime", "params": { "par1": "val1","p2":"v2"}, "id": 12}' http://localhost:4000/jsonrpc
-#    #HTTP/1.0 200 OK
-#    #Content-Type: application/json
-#    #Content-Length: 58
-#    #Server: Werkzeug/0.9.4 Python/3.4.0
-#    #Date: Mon, 26 May 2014 09:15:27 GMT
-#    #
-#    #{"jsonrpc": "2.0", "result": {"time": 15801327}, "id": 12}azure@boxfish:~/workbench/nxtDev/BRIDGE$ 
-#    #
-#
-#    def run(self,):
-#        
-#        run_simple('localhost', 7878, self.application,  )
-#
-# 
-# 
-# 
-# 
-#
-#class BridgeThread(QObject):
-#
-#    JSON_Sig  =  pyqtSignal(dict,dict)  #6
-#    
-#    
-#    def __init__(self):
-#        super(QObject, self).__init__( parent = None)
-#        print("1")
-#        self.qPool=QtCore.QThreadPool.globalInstance()
-#        self.qPool.setMaxThreadCount(25) # robustness
-#        #self.qPool.activeThreadCount() this is how many we have running?!
-#    @pyqtSlot() # 61
-#    def jsonServ_Slot(self, ):
-#        """ - """
-#        
-#        #meta['qqLen'] = self.qPool.activeThreadCount() # this line is  for timing the delay in the # QThread to wait for the proper delay time
-#
-#        json_Emitter = JSON_Emitter()
-#        self.json_Runner = JSON_Runner( json_Emitter, )
-#
-#        QObject.connect(self.json_Runner.emitter, SIGNAL("JSONRPL(PyQt_PyObject, PyQt_PyObject)"),self.JSON_Sig)
-#        
-#        self.qPool.start(self.json_Runner)
-#
-#
-#
-#
-#
 
 
 
@@ -423,27 +298,27 @@ class nxtWin0Control(QObject):
         #################################
         
         
-        
+
     def pb_test1_Clk(self):
         ui = self.ui_nxtWin0
         ui.textEdit_response.append("start sever")
-        
-        mm = BridgeThread()
-        mm.jsonServ_Slot()
-    
+        ui = self.ui_nxtWin0
+        ui.textEdit_response.append("test1")
+        ui.textEdit_response_2.append("test1")
+        #mm = BridgeThread()
+        #mm.jsonServ_Slot()
+
         #run_simple('localhost', 4000, self.application, processes = 20 )#threaded=True )
-        
-        ui.textEdit_response_2.append("server startedtest1")
 
     def pb_test2_Clk(self):
         ui = self.ui_nxtWin0
-        ui.textEdit_response.append("test1")
-        ui.textEdit_response_2.append("test1")
+        ui.textEdit_response.append("test2")
+        ui.textEdit_response_2.append("test2")
         
     def pb_test3_Clk(self):
         ui = self.ui_nxtWin0
-        ui.textEdit_response.append("test1")
-        ui.textEdit_response_2.append("test1")
+        ui.textEdit_response.append("test3")
+        ui.textEdit_response_2.append("test3")
          
     def pb_clearTextEditMSG_Clk(self):
         ui = self.ui_nxtWin0
@@ -880,7 +755,6 @@ class nxtWin0Control(QObject):
         self.sessMan.uc2_accHndlr.leaseBalance( TXparms )
 
 #
-#
 # ToDo: setAccountINfo is UC2 not UC4 !!!!!!!!!!!!!!!!!!! later
 #
     def UC2_setName2_Clk(self):
@@ -1042,10 +916,10 @@ class nxtWin0Control(QObject):
     def donateButton_CB(self):
         ui =  self.ui_nxtWin0
         self.confLED1_strobe1()
-        ui.lineEdit_recipient.setText( '1674414626317090683')
+        ui.lineEdit_recipient.setText( 'xx')
         ui.lineEdit_fee.setText('1')
         ui.lineEdit_deadline.setText('180')
-        ui.lineEdit_amount.setText('APPRECIATED!')
+        ui.lineEdit_amount.setText('2.0')
         #self.confLED1_cy()
         
         

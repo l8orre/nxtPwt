@@ -594,6 +594,9 @@ transferAsset
 
         QObject.connect(self.sessMan, SIGNAL("NRSconnCHANGED_Sig(PyQt_PyObject)"), self.connectChanged_Slot) # sessMan: seesion management!
         self.sessUrl = NXXconn.comp['url']
+
+        #print(30*"\n*****", self.sessUrl)
+
         self.makeConnection()
 
             #
@@ -2134,6 +2137,14 @@ transferAsset
         replyEmitter = ReplyEmitter( self.session, preppedReq  , meta )
         self.replyFetcher = ReplyFetcher( replyEmitter, self.apiLogger )
         QObject.connect(self.replyFetcher.emitter, SIGNAL("NRSREPLY(PyQt_PyObject, PyQt_PyObject)"),self.getState_Sig)
+        #
+        # print(30*"\n*****", preppedReq)
+        #
+        # print(30*"\n*****", preppedReq.body)
+        # print(30*"\n*****", preppedReq.url)
+        #
+
+
         self.qPool.start(self.replyFetcher)
 
     @pyqtSlot() # 13

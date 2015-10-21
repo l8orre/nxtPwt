@@ -140,7 +140,6 @@ listWidget_assetList
         QObject.connect(self.uc5_AE, SIGNAL("uc5_getAccountResid_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getAccountRSD_CB)
         QObject.connect(self.uc5_AE, SIGNAL("uc5_getAccountSlated_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getAccountSLT_CB)
 
-
         ui.lineEdit_pollTimer2.setText( str(self.pollTime1 ))
 
         QtCore.QObject.connect(self.pollTimer1, QtCore.SIGNAL("timeout()"), self.nxtPoll1CB) # LOCALTIMER
@@ -148,7 +147,6 @@ listWidget_assetList
         ui.gb_poll2.setChecked(False)
         self.blinkerCols = [Qt.Qt.darkYellow, Qt.Qt.magenta]
         ui.kled_poll2.setColor(Qt.Qt.darkBlue)
-
 
         ui.lineEdit_acctResid.setText(self.accountResid.data['account'])
         ui.lcdN_acctRes_Nxt.setDigitCount(9)        #
@@ -178,7 +176,6 @@ listWidget_assetList
         ui.tv_allAssets.setSelectionMode(1)
         ui.tv_allAssets.horizontalHeader().setStretchLastSection(True)
 
-
         ui.tv_accAssets.setModel(self.uc5_AE.uc5_accAssets_proxy)
         ui.tv_accAssets.horizontalHeader().setStretchLastSection(True)
 
@@ -188,7 +185,6 @@ listWidget_assetList
         ui.tv_accAssets.setSortingEnabled(True)
         ui.tv_accAssets.setSelectionBehavior(0)
         ui.tv_accAssets.setSelectionMode(1)
-
 
 
         ui.lv_assets1.setAlternatingRowColors(True)

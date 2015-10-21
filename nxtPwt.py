@@ -27,11 +27,11 @@ import sys
 import os
 from PyQt4 import QtGui
  
-import nxtPwt
+#import nxtPwt
 from nxtPwt.nxtSessionManager import nxtSessionManager
 
-import argparse
-import configparser
+#import argparse
+#import configparser
 
 
 from nxtPwt import nxtBridgeCtrl
@@ -53,19 +53,19 @@ class MainApplication:
         self.app = app
         
         self.args = args
-        runAs = self.args['runAs']
+        #runAs = self.args['runAs']
         
         #here we can reboot other sessions
         self.sessMan = nxtSessionManager(app, args ) # self = app        
 
         #self.startBridge()
 
-
-    # these are controllers
-    def startBridge(self):
-        """ This means that PowerTools can also be run WITHOUT windows!   """
-        self.nxtBridge1Ctrl = nxtBridgeCtrl.Bridge1Ctrl(self) # bridge is what the WinCtrl would be
-        self.nxtBridge1Ctrl.activate()
+    #
+    # # these are controllers
+    # def startBridge(self):
+    #     """ This means that PowerTools can also be run WITHOUT windows!   """
+    #     self.nxtBridge1Ctrl = nxtBridgeCtrl.Bridge1Ctrl(self) # bridge is what the WinCtrl would be
+    #     self.nxtBridge1Ctrl.activate()
 
     def openMainWindow(self):
         # reminder of namespaces: keep here.
@@ -128,20 +128,24 @@ def main(argv):
     if len(argv) <2:
         argv.append('W')
     runAs = argv[1]
-    #runAs = 'B' #ridge' #'Win0'
-    #runAs = 'W' #in0' #''
+
     args={}
     args['runAs'] = runAs
     app = QtGui.QApplication(sys.argv) # creation of the app object
     main = MainApplication(app, args )
-    
-    if runAs== 'W':
-        main.openMainWindow( )
-        done = app.exec_()
-    elif runAs == 'B':
-        main.startBridge( )
-        done = app.exec_()
-    print(done )
+    main.openMainWindow( )
+    done = app.exec_()
+
+    # if runAs== 'W':
+    #     main.openMainWindow( )
+    #     done = app.exec_()
+    #
+    # elif runAs == 'B':
+    #     main.startBridge( )
+    #     done = app.exec_()
+    #
+    # print(done )
+
     sys.exit(done)
 
 

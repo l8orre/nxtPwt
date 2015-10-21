@@ -30,10 +30,10 @@ from PyQt4 import  Qt , QtGui,  QtCore
 from PyQt4.QtCore import  SIGNAL , QObject, pyqtSignal, pyqtSlot
  
 #import numpy as np
-from os import listdir as ls
+#from os import listdir as ls
 #from PyQt4.Qt import QPixmap
-import os
-import time
+#import os
+#import time
 #import requests, json
 
  

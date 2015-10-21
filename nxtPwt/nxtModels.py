@@ -659,7 +659,7 @@ class nxtMeta(QObject):
     def poll1Stop(self):
         self.timer1.stop()
     def poll1Single(self, meta = {}):
-        self.nxtApiSlot(self.nxtApi, self.apiReq_toSend,self.meta)
+        self.nxtApiSlot(self.nxtApi, self.apiReq_toSend, self.meta)
     def poll1_CB(self):
         self.checkConditions = True # !! do it here
 
@@ -940,16 +940,16 @@ nextLessee:2865886802744497404
 
 # this can collect all the tings that belong to account - aliases, msgs, asserts, orders pubkey, polls
     def init_Sigs(self):
+
         QObject.connect(self.timer1, SIGNAL("timeout()"),  self.poll1_CB)
         QObject.connect(self.sessMan.nxtApi, SIGNAL("getAccount_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getAccount_fromApi)
         QObject.connect(self.sessMan.nxtApi, SIGNAL("getAccountId_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getAccountId_fromApi)
-
         QObject.connect(self.sessMan, SIGNAL("TX_sendMoney_Sig(PyQt_PyObject, PyQt_PyObject)"), self.UC4_TX_sendMoney_CB )
-
-
         QObject.connect(self.sessMan.nxtApi, SIGNAL("getForging_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getForging_fromApi) # all in 1
         QObject.connect(self.sessMan.nxtApi, SIGNAL("startForging_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getForging_fromApi)
         QObject.connect(self.sessMan.nxtApi, SIGNAL("stopForging_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getForging_fromApi)
+
+        QObject.connect(self.sessMan.nxtApi, SIGNAL("getAccountTransactionIds_Sig(PyQt_PyObject, PyQt_PyObject)"), self.getAccountTransactionIds_fromApi)
 
 
     def poll1Start(self, meta):
@@ -1058,6 +1058,10 @@ nextLessee:2865886802744497404
             foundAndStopped - True
             """
 
+
+    def getAccountTransactionIds_fromApi(self, reply, meta):
+        for k in reply:
+            print( k + " - " + str(reply[k])  + " - " + str(type(reply[k])))
 
 
 
@@ -1968,7 +1972,7 @@ class TX(QObject):
 
 
 
-            print("create TX here fetching TX specs from BC: "  + TX_ID + str(self.meta))
+            print("create TX here fetching TX specs from BC: "  + str(TX_ID) + str(self.meta))
 
             self.sessMan.nxtApi.getTransaction_Slot(  self.apiReq_getTransaction , self.meta)
 
@@ -2088,9 +2092,6 @@ class SendMoney(TX): #2
 
     ##### REMEMBER: the api returns json dicts, not the instances created here!
         # hence, they must be handled eithrer here, or passed in the meta dict!!!
-    #
-    # def bug(self):
-    #     pass
 
 
 
@@ -2134,7 +2135,7 @@ class PlaceBidOrder(TX):
     def placeBidOrder(self, ):
         self.apiReq_placeBidOrder['feeNQT'] = self.TXparms['feeNQT']
         self.apiReq_placeBidOrder['deadline'] = self.TXparms['deadline']
-        self.apiReq_placeBidOrder['publicKey'] = '' #LATER
+        self.apiReq_placeBidOrder['publicKey'] = ''         #LATER
         self.apiReq_placeBidOrder['referencedTransaction']  = '' #LATER
         self.apiReq_placeBidOrder['secretPhrase']  = self.sessMan.uc2_accHndlr.accRes.data['secretPhrase']
 

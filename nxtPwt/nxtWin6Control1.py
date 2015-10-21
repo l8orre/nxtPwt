@@ -58,9 +58,9 @@ class nxtWin6Control(QObject):
         self.app.nxtWin6 = self # make this   WinControl1  known  in the app namespace.  When this Win throws sigs, they can be recvd anywhere where this isknown.
         
         # Init the useCases:  # make this window known in the useCases that feed it.
-        
-        self.app.sessMan.ucTest1.initWin6(self.app.nxtWin6, ui)
-        self.app.sessMan.ucTest2.initWin6(self.app.nxtWin6, ui)
+
+        self.app.sessMan.uc51_blkch_trav.initWin6(self.app.nxtWin6, ui)
+        #self.app.sessMan.ucTest2.initWin6(self.app.nxtWin6, ui)
         
         
         
@@ -68,11 +68,9 @@ class nxtWin6Control(QObject):
     def init(self): 
         """ nxtWin6""" 
         ui = self.ui_nxtWin6
-        # currently callbacks for 42 api calls 013114
-         
-        
-        #ui.textEdit_testComment.setTextColor(Qt.Qt.red)
-        #ui.textEdit_testComment.setFontPointSize(12)
+
+        ui.textEdit_testComment.setTextColor(Qt.Qt.red)
+        ui.textEdit_testComment.setFontPointSize(12)
 
         ui.textEdit_testComment.append("test comments go here")
         ui.textEdit_testReport.append("test reports go here")
@@ -82,12 +80,11 @@ class nxtWin6Control(QObject):
         QtCore.QObject.connect(ui.pb_test1Start , SIGNAL("clicked()"), self.UC_test1_activateCB )
         QtCore.QObject.connect(ui.pb_test2Prep , SIGNAL("clicked()"), self.UC_test2_prepCB )
         QtCore.QObject.connect(ui.pb_test2Start , SIGNAL("clicked()"), self.UC_test2_activateCB )
-        
         QtCore.QObject.connect(ui.pb_clearComments, SIGNAL("clicked()"), self.clearComments_CB) # <- this constructs and sends the Query
         
         QtCore.QObject.connect(ui.pb_clearReplies, SIGNAL("clicked()"), self.clearReplies_CB) # <- this constructs and sends the Query
         
-        
+
         
     
     def UC_test1_activateCB(self,):
@@ -95,18 +92,37 @@ class nxtWin6Control(QObject):
       
     def UC_test1_prepCB(self,):
         ui = self.ui_nxtWin6
-        ui.textEdit_testComment.append(self.app.sessMan.ucTest1.__doc__)
-        
-        
-        
-        
+        ui.textEdit_testComment.append("CLICKED1")#self.app.sessMan.ucTest1.__doc__)
+
+        acc='17237348781473815051'
+        self.apiReq_getAccountTransactionIds = self.apiCalls.getAccountTransactionIds
+        self.apiReq_getAccountTransactionIds['account'] = acc
+
+        self.apiTX_Slot(  self.apiReq_getAccountTransactionIds , self.meta )
+
+
+
+    def getAccountTransactionIdsCB(self,):#23
+        self.clearLines()
+        self.apiCall = self.apiCalls.getAccountTransactionIds
+        ui = self.ui_nxtWin7
+        fillKeys = iter(self.nxtQ_lineEdits)
+        fillVals = iter(self.nxtQ_lineEdits_Vals)
+        for parmType in self.apiCall:
+            fillKey = next(fillKeys)
+            fillVal = next(fillVals)
+            fillKey.setText(parmType)
+            fillVal.setText(self.apiCall[parmType])
+        return 0
+
+
     
     def UC_test2_activateCB(self,):
         self.emit( SIGNAL( "UC_test2_activate(PyQt_PyObject)"),  {'uc':'test2'} )    # 
       
     def UC_test2_prepCB(self,):
         ui = self.ui_nxtWin6
-        ui.textEdit_testComment.append(self.app.sessMan.ucTest2.__doc__) # put the doc string into the comment textEdit
+        ui.textEdit_testComment.append("CLICKED2")#elf.app.sessMan.ucTest2.__doc__) # put the doc string into the comment textEdit
         
         
     def clearComments_CB(self,):
